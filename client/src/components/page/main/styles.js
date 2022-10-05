@@ -44,6 +44,9 @@ export const Banner = styled.div`
   padding-top: 70px;
 
   > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 
@@ -53,12 +56,15 @@ export const Banner = styled.div`
     color: #fff;
   }
   p {
-    margin-top: 20px;
+    margin-top: 0px;
     color: #ebebeb;
     font-size: 24px;
   }
-  button {
-    margin-top: 23px;
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 13px;
     background-color: #e9d847;
     border-radius: 12px;
     width: 190px;
@@ -66,6 +72,8 @@ export const Banner = styled.div`
     border: none;
     outline: none;
     font-weight: bold;
+    text-decoration: none;
+    color: #000;
   }
 `;
 
@@ -74,7 +82,6 @@ export const TipDiv = styled.div`
   display: inline-flex;
   justify-content: space-between;
   margin-top: -80px;
-  z-index: 2;
   margin-bottom: 117px;
 
   div {
@@ -108,6 +115,7 @@ export const Circle = styled.div`
   right: 0;
   width: 780px;
   height: 804px;
+  z-index: -1;
   background-image: url("data:image/svg+xml,%3Csvg width='779' height='804' viewBox='0 0 779 804' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='589.5' cy='342.5' rx='346.5' ry='342.5' fill='%2331918B' fill-opacity='0.56'/%3E%3Cellipse cx='220.5' cy='587' rx='220.5' ry='217' fill='%237675CF' fill-opacity='0.57'/%3E%3C/svg%3E%0A");
 `;
 
@@ -121,12 +129,12 @@ export const Btn = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 429px;
+    width: 359px;
     height: 132px;
     border-radius: 100px;
     outline: none;
     border: none;
-    font-size: 64px;
+    font-size: 44px;
     color: #fff;
     background-color: #32b156;
     text-decoration: none;
