@@ -1,4 +1,5 @@
 import * as S from "./styles";
+import speakerImg from "../../../asset/image/speaker.png"
 
 const Survey = (props) => {
   const { content, field } = props.prop;
@@ -42,10 +43,24 @@ const Survey = (props) => {
     e.target.style.border = `10px solid ${color}`
   };
 
+  
+  function speak(text) {
+    window.speechSynthesis.cancel();
+
+    const speechMsg = new SpeechSynthesisUtterance();
+    speechMsg.rate = 1;
+    speechMsg.pitch = 1;
+    speechMsg.lang = "ko-KR";
+    speechMsg.text = text;
+
+    window.speechSynthesis.speak(speechMsg);
+  }
+
+
   return (
     <>
       <S.MainDiv>
-        <S.Question>{content}</S.Question>
+        <S.Question>{content} <img src={speakerImg} alt="" onClick={() => speak(content)}/></S.Question>
         <S.Answer>
           <span style={{ marginRight: "75px", color: "#32B156" }}>그렇다.</span>
           {keyword.map((item) => (
