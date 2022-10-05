@@ -1,0 +1,42 @@
+import styled from "styled-components";
+
+export const MainDiv = styled.div`
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+
+export const Question = styled.div`
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 102px;
+`;
+
+export const Sortation = styled.hr`
+  margin-bottom: 97px;
+`;
+
+export const Answer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 54px;
+  span {
+    font-size: 40px;
+    font-weight: bold;
+  }
+`;
+
+export const AnswerBtn = styled.button`
+  width: ${(props) => `${props.scale}` + "px"};
+  height: ${(props) => `${props.scale}` + "px"};
+  margin: 0px 25px;
+  outline: none;
+  background: none;
+  border-radius: 50%;
+  border: 3px ${(props) => `${props.color}`} solid;
+  transition: ease-in-out 0.2s;
+  &:hover {
+    border: 10px ${(props) => `${props.color}`} solid;
+  }
+`;

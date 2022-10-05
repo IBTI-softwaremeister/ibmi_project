@@ -40,7 +40,6 @@ export const Banner = styled.div`
   height: 400px;
   background-image: url("data:image/svg+xml,%3Csvg width='1920' height='474' viewBox='0 0 1920 474' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1921.14' height='422.688' transform='matrix(1 0 0.000998345 0.999999 -0.676514 0.424805)' fill='%2332B156'/%3E%3Cpath d='M1931 426.585C1931 453.923 1498.73 474 965.5 474C432.269 474 0 446.936 0 419.598C0 392.26 432.269 375 965.5 375C1498.73 375 1931 399.247 1931 426.585Z' fill='%2332B156'/%3E%3C/svg%3E%0A");
   display: flex;
-  align-items: center;
   flex-direction: column;
   padding-top: 70px;
 
@@ -49,6 +48,7 @@ export const Banner = styled.div`
   }
 
   h1 {
+    margin-top: -10px;
     font-size: 72px;
     color: #fff;
   }
@@ -75,6 +75,7 @@ export const TipDiv = styled.div`
   justify-content: space-between;
   margin-top: -80px;
   z-index: 2;
+  margin-bottom: 117px;
 
   div {
     text-align: center;
@@ -108,4 +109,26 @@ export const Circle = styled.div`
   width: 780px;
   height: 804px;
   background-image: url("data:image/svg+xml,%3Csvg width='779' height='804' viewBox='0 0 779 804' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='589.5' cy='342.5' rx='346.5' ry='342.5' fill='%2331918B' fill-opacity='0.56'/%3E%3Cellipse cx='220.5' cy='587' rx='220.5' ry='217' fill='%237675CF' fill-opacity='0.57'/%3E%3C/svg%3E%0A");
+`;
+
+export const Btn = styled.div`
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 136px;
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 429px;
+    height: 132px;
+    border-radius: 100px;
+    outline: none;
+    border: none;
+    font-size: 64px;
+    color: #fff;
+    background-color: #32b156;
+    text-decoration: none;
+  }
 `;
