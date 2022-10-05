@@ -6,8 +6,6 @@ function Chat({ socket, username, room }) {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
 
-  console.log(socket, username, room);
-
   const sendMessage = async () => {
     if (currentMessage !== "") {
       const messageData = {
@@ -42,15 +40,33 @@ function Chat({ socket, username, room }) {
                 id={username === messageContent.author ? "other" : "you"}
               >
                 <div>
-                  <S.MessageContent>
-                    <p>{messageContent.message}</p>
-                  </S.MessageContent>
-                  <S.MessageMeta>
-                    <p>{messageContent.time}</p>
-                    <p style={{ fontWeight: "bold", marginLeft: "10px" }}>
-                      {messageContent.author}
-                    </p>
-                  </S.MessageMeta>
+                  {username === messageContent.author ? (
+                    <S.Author style={{ justifyContent: "flex-end" }}>
+                      <div>{messageContent.author}</div>
+                      <img src="" alt="" />
+                    </S.Author>
+                  ) : (
+                    <S.Author>
+                      <img src="" alt="" />
+                      <div>{messageContent.author}</div>
+                    </S.Author>
+                  )}
+                  {username === messageContent.author ? (
+                    <S.MessageContent
+                      style={{
+                        justifyContent: "flex-end",
+                        marginRight: "-10px",
+                      }}
+                    >
+                      <p>{messageContent.message}</p>
+                      <span>{messageContent.time}</span>
+                    </S.MessageContent>
+                  ) : (
+                    <S.MessageContent>
+                      <span>{messageContent.time}</span>
+                      <p>{messageContent.message}</p>
+                    </S.MessageContent>
+                  )}
                 </div>
               </S.Message>
             );
@@ -69,8 +85,18 @@ function Chat({ socket, username, room }) {
             event.key === "Enter" && sendMessage();
           }}
         />
-        <button onClick={sendMessage}>&#9658;</button>
+        <button onClick={sendMessage}>전송</button>
       </S.InputForm>
+      <S.RightPart>
+        <div>
+          <img src="" alt="" />
+          <span>{username}</span>
+        </div>
+        <p>
+          공통 관심사는<br/> <span>{room}</span>입니다.
+        </p>
+        <p className="notice_p">{`채팅은 저장되지 않습니다.\n현재 페이지를 나가면 새롭게채팅에 \n 참여해야합니다.`}</p>
+      </S.RightPart>
     </S.MainDiv>
   );
 }
