@@ -1,100 +1,99 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
+import { io } from 'socket.io-client'
 import Header from '../../common/header/index'
 import * as S from "./styles"
-import camping from "../../../asset/image/camping.png"
-import band from "../../../asset/image/band.png"
-import concert from "../../../asset/image/concert.png"
-import gallery from "../../../asset/image/gallery.png"
-import instrument from "../../../asset/image/instrument.png"
-import music from "../../../asset/image/music.png"
-import paint from "../../../asset/image/paint.png"
-import photo from "../../../asset/image/photo.png"
-import photoart from "../../../asset/image/photoart.png"
-import riding from "../../../asset/image/riding.png"
-import selfie from "../../../asset/image/selfie.png"
-import solotour from "../../../asset/image/solotour.png"
-import sports from "../../../asset/image/sports.png"
-import tour from "../../../asset/image/tour.png"
-import waterpaint from "../../../asset/image/waterpaint.png"
-import write from "../../../asset/image/write.png"
+import { Images, firstNameData, lastNameDate } from '../../../lib/export/data'
+import profile from "../../../asset/image/profile.png"
+import Popup from "reactjs-popup"
+import Chat from "../chat/index"
 
-const index = () => {
+const socket = io.connect("http://localhost:3001");
+
+const Index = () => {
+  const nameInput = useRef(null);
+  const [modalOpened, setModalOpened] = useState(false);
+  const [isChange, setIsChange] = useState(false);
+  const [showChat, setShowChat] = useState(false);
+  const [data, setData] = useState({
+    name: "",
+    category: ""
+  })
+
+  console.log(Math.floor(Math.random() * firstNameData.length - 1))
+
+  async function changeName() {
+    await setIsChange(true);
+    nameInput.current.focus();
+  }
   return (
     <>
-      <Header />
-      <S.Banner>
-        <span>관심사 유형</span>
-        <p>총 16개의 관심사 유형이 있고, 같은 관심사 유형을 갖고 있는 사람들끼리<br/>
+    {showChat ? <Chat socket={socket} username={data.name} room={data.category}/> : 
+    <>
+    <Popup 
+      open={modalOpened}
+      onOpen={() => {
+        // setName(
+        //   firstNameData[Math.floor(Math.random() * firstNameData.length)] 
+        //   + " "
+        //   + lastNameDate[Math.floor(Math.random() * firstNameData.length)]
+        // )
+        setData({...data, name:firstNameData[Math.floor(Math.random() * firstNameData.length)] 
+            + " "
+            + lastNameDate[Math.floor(Math.random() * firstNameData.length)]})
+      }}
+      onClose={() => {
+        setModalOpened(false)
+        setIsChange(false)
+      }}
+    >
+      <S.PopupWindow>
+        <img src={profile} alt='' />
+        <div className='Input_box'>
+          <label>닉네임</label>
+          {
+            isChange ? 
+            <input 
+              ref={nameInput} 
+              value={data.name} 
+              onChange={(e) => setData({...data, name: e.target.value})}
+            />
+            : <span>{data.name}</span>
+          }
+        </div>
+        <div className='Input_box'>
+          <label>관심사</label>
+          <span>{data.category}</span>
+        </div>
+        <div className='Button_box'>
+          <button onClick={changeName} >닉네임 변경</button>
+          <button onClick={() => (setShowChat(true))} >
+            확인
+          </button>
+        </div>
+      </S.PopupWindow>
+    </Popup>
+    <S.Banner>
+      <span>관심사 유형</span>
+      <p>총 16개의 관심사 유형이 있고, 같은 관심사 유형을 갖고 있는 사람들끼리<br/>
 소통 가능한 채팅을 진행 할 수 있습니다.</p>
-        <S.TypeBox>
-          <S.Type>
-            <img src={camping} alt='' />
-            <span>캠핑 가기</span>
-          </S.Type>
-          <S.Type>
-            <img src={band} alt='' />
-            <span>밴드 가입하기</span>
-          </S.Type>
-          <S.Type>
-            <img src={concert} alt='' />
-            <span>콘서트 보기</span>
-          </S.Type>
-          <S.Type>
-            <img src={gallery} alt='' />
-            <span>미술관 가기</span>
-          </S.Type>
-          <S.Type>
-            <img src={instrument} alt='' />
-            <span>악기 배우기</span>
-          </S.Type>
-          <S.Type>
-            <img src={music} alt='' />
-            <span>음악 만들기</span>
-          </S.Type>
-          <S.Type>
-            <img src={paint} alt='' />
-            <span>그림 그리기</span>
-          </S.Type>
-          <S.Type>
-            <img src={photo} alt='' />
-            <span>사진 찍기</span>
-          </S.Type>
-          <S.Type>
-            <img src={photoart} alt='' />
-            <span>포토아트하기</span>
-          </S.Type>
-          <S.Type>
-            <img src={riding} alt='' />
-            <span>자전거타기</span>
-          </S.Type>
-          <S.Type>
-            <img src={selfie} alt='' />
-            <span>셀카 찍기</span>
-          </S.Type>
-          <S.Type>
-            <img src={solotour} alt='' />
-            <span>혼자 여행하기</span>
-          </S.Type>
-          <S.Type>
-            <img src={sports} alt='' />
-            <span>스포츠활동하기</span>
-          </S.Type>
-          <S.Type>
-            <img src={tour} alt='' />
-            <span>단체여행가기</span>
-          </S.Type>
-          <S.Type>
-            <img src={waterpaint} alt='' />
-            <span>수체화 하기</span>
-          </S.Type>
-          <S.Type>
-            <img src={write} alt='' />
-            <span>글 쓰기</span>
-          </S.Type>
-        </S.TypeBox>
-      </S.Banner>
+      <S.TypeBox>
+        {
+          Images.map((image, idx) => (
+            <S.Type onClick={() => {
+              setModalOpened(true)
+              setData({...data, category: image.title})
+            }}>
+              <img src={image.img} alt='' />
+              <span>{image.title}</span>
+            </S.Type>
+          ))
+        }
+      </S.TypeBox>
+    </S.Banner>
+    </>
+    }
     </>
   )
 }
 
-export default index
+export default Index
