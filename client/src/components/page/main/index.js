@@ -5,6 +5,8 @@ import * as S from "./styles";
 import checkImg from "../../../asset/image/check.png";
 import questionImg from "../../../asset/image/question.png";
 import seriousImg from "../../../asset/image/serious.png";
+import Survey from "../../common/survey";
+import { Question } from "../../../lib/export/data";
 
 const socket = io.connect("http://localhost:3001");
 
@@ -12,6 +14,18 @@ const Main = () => {
   const [username, setUsername] = useState("");
   const [room, setRoom] = useState("");
   const [showChat, setShowChat] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const [data, setData] = useState({
+    music: 0,
+    art: 0,
+    cook: 0,
+    picture: 0,
+    book: 0,
+    trip: 0,
+    sport: 0,
+    create: 0,
+    extroversion: 0,
+  });
 
   const joinRoom = () => {
     if (username !== "" && room !== "") {
@@ -38,6 +52,12 @@ const Main = () => {
     },
   ];
 
+  const onClickBtn = () => {
+    if (current < 3) {
+      setCurrent(current + 1);
+    }
+  };
+
   return (
     <>
       {/* {!showChat ? (
@@ -62,7 +82,6 @@ const Main = () => {
         <Chat socket={socket} username={username} room={room} />
       )} */}
       <S.MainDiv>
-        <div style={{ width: "100vw", height: "87px" }} />
         <S.Circle />
         <S.Banner>
           <div>
@@ -84,7 +103,28 @@ const Main = () => {
             </>
           ))}
         </S.TipDiv>
+        <div id="main" style={{ marginBottom: "300px" }} />
       </S.MainDiv>
+      {Question.map((item, i) => (
+        <>
+          {i < (current + 1) * 5 && i >= current * 5 ? (
+            <Survey prop={item} data={{ data, setData }} />
+          ) : (
+            <></>
+          )}
+        </>
+      ))}
+      <S.Btn>
+        {current !== 3 ? (
+          <a href="#main" onClick={onClickBtn}>
+            다음 &#9658;
+          </a>
+        ) : (
+          <a href="#main" onClick={onClickBtn}>
+            제출
+          </a>
+        )}
+      </S.Btn>
     </>
   );
 };
