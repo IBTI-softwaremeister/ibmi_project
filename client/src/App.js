@@ -1,14 +1,15 @@
 import "./App.css";
 import { GlobalStyle } from "./styles/styles";
 import Main from "./components/page/main/index"
-import Header from "./components/common/header/index";
+import Type from "./components/page/type/index"
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <Header />
-      <Main />
-    </>
+    <Routes>
+      <Route exact path='/' element={<Main />} />
+      <Route exact path='/type' element={<Type />} />
+    </Routes>
   );
 }
 
