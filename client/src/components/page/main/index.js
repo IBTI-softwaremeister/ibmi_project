@@ -2,7 +2,7 @@ import io from "socket.io-client";
 import { useState } from "react";
 import Chat from "../chat";
 import * as S from "./styles";
-
+import Header from "../../common/header/index";
 const socket = io.connect("http://localhost:3001");
 
 const Main = () => {
@@ -21,6 +21,7 @@ const Main = () => {
     <>
       {!showChat ? (
         <S.Join>
+          <Header />
           <input
             type="text"
             placeholder="MBTI를 작성해주세요"
