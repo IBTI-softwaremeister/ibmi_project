@@ -11,6 +11,11 @@ export const Question = styled.div`
   font-size: 40px;
   font-weight: 600;
   margin-bottom: 102px;
+  display: inline-flex;
+  align-items: center;
+  img {
+    margin-left: 24px;
+  }
 `;
 
 export const Sortation = styled.hr`
