@@ -63,3 +63,63 @@ export const Type = styled.div`
         color: black;
     }
 `
+
+export const PopupWindow = styled.div`
+    width: 50vw;
+    height: 60vh;
+    background-color: #32B156;
+    border-radius: 50px;
+    box-shadow: 5px 5px 1000px 1000px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    img {
+        width: 200px;
+        height: 200px;
+        /* background-color: white; */
+        border-radius: 50%;
+    }
+
+    .Input_box {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 40%;
+    }
+    .Input_box input {
+        width: auto;
+        border: none;
+        background-color: transparent;
+        color: white;
+        font-size: 20px;
+        font-weight: 700;
+        text-align: right;
+    }
+    .Input_box label {
+        color: #E4E2E2;
+        font-size: 20px;
+    }
+    .Input_box span {
+        color: white;
+        font-size: 20px;
+        font-weight: 700;
+    }
+    .Button_box {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 85%;
+        height: 13%;
+    }
+    button {
+        width: 45%;
+        height: 100%;
+        background-color: white;
+        border-radius: 15px;
+        border: none;
+        font-size: 20px;
+        font-weight: 700;
+    }
+`
