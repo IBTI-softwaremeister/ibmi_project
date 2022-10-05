@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Header = styled.div`
     width: 100%;
-    height: 50px;
+    height: 100px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -10,11 +10,9 @@ export const Header = styled.div`
     border-bottom: 1px solid black;
 
     img {
-        position: fixed;
+        position: absolute;
         left: 4%;
-        font-size: 30px;
-        font-weight: bold;
-        height: 40px;
+        height: 60px;
     }
 
     div {
@@ -22,5 +20,13 @@ export const Header = styled.div`
         display: flex;
         justify-content: space-between;
         color: grey;
+        font-size: 20px;
+    }
+    div span {
+        cursor: pointer;
+        font-weight: 600;
+    }
+    div span:hover {
+        color: black;
     }
 `

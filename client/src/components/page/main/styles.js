@@ -37,9 +37,8 @@ export const MainDiv = styled.div`
 
 export const Banner = styled.div`
   width: 100vw;
-  height: 477px;
+  height: 400px;
   background-image: url("data:image/svg+xml,%3Csvg width='1920' height='474' viewBox='0 0 1920 474' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1921.14' height='422.688' transform='matrix(1 0 0.000998345 0.999999 -0.676514 0.424805)' fill='%2332B156'/%3E%3Cpath d='M1931 426.585C1931 453.923 1498.73 474 965.5 474C432.269 474 0 446.936 0 419.598C0 392.26 432.269 375 965.5 375C1498.73 375 1931 399.247 1931 426.585Z' fill='%2332B156'/%3E%3C/svg%3E%0A");
-  border-bottom: 3px solid #fff;
   display: flex;
   align-items: center;
   flex-direction: column;
