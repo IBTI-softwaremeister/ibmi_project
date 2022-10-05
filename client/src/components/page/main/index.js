@@ -29,7 +29,7 @@ const Main = () => {
 
   const joinRoom = () => {
     if (username !== "" && room !== "") {
-      socket.emit("join_room", room);
+      socket.emit("join_room", {room, username});
       setShowChat(true);
     }
   };
@@ -52,79 +52,84 @@ const Main = () => {
     },
   ];
 
-  const onClickBtn = () => {
+  const onClickBtn = (str) => {
     if (current < 3) {
       setCurrent(current + 1);
+    }
+    if (str === "제출") {
+      console.log("제출 듕");
     }
   };
 
   return (
     <>
-      {/* {!showChat ? (
-        <S.Join>
-          <input
-            type="text"
-            placeholder="MBTI를 작성해주세요"
-            onChange={(event) => {
-              setUsername(event.target.value);
-            }}
-          />
-          <input
-            type="text"
-            placeholder="Room ID..."
-            onChange={(event) => {
-              setRoom(event.target.value);
-            }}
-          />
-          <button onClick={joinRoom}>Join A Room</button>
-        </S.Join>
-      ) : (
-        <Chat socket={socket} username={username} room={room} />
-      )} */}
-      <S.MainDiv>
-        <S.Circle />
-        <S.Banner>
-          <div>
-            <h1>무료 관심사 검사</h1>
-            <p>
-              나의 몰랐던 관심사를 알아보고 <br />
-              나의 비슷한 관심사를 가진 사람들과 소통해봐요.
-            </p>
-            <button>자세히 알아보기</button>
-          </div>
-        </S.Banner>
-        <S.TipDiv>
-          {tip.map((item) => (
-            <>
-              <div style={{ backgroundColor: `${item.color}` }}>
-                <img src={item.image} alt={item.content} />
-                <p>{item.content}</p>
+      {!showChat ? (
+        <>
+          <S.Join>
+            <input
+              type="text"
+              placeholder="MBTI를 작성해주세요"
+              onChange={(event) => {
+                setUsername(event.target.value);
+              }}
+            />
+            <input
+              type="text"
+              placeholder="Room ID..."
+              onChange={(event) => {
+                setRoom(event.target.value);
+              }}
+            />
+            <button onClick={joinRoom}>Join A Room</button>
+          </S.Join>
+          <S.MainDiv>
+            <S.Circle />
+            <S.Banner>
+              <div>
+                <h1>무료 관심사 검사</h1>
+                <p>
+                  나의 몰랐던 관심사를 알아보고 <br />
+                  나의 비슷한 관심사를 가진 사람들과 소통해봐요.
+                </p>
+                <a href="#main">자세히 알아보기</a>
               </div>
+            </S.Banner>
+            <S.TipDiv>
+              {tip.map((item) => (
+                <>
+                  <div style={{ backgroundColor: `${item.color}` }}>
+                    <img src={item.image} alt={item.content} />
+                    <p>{item.content}</p>
+                  </div>
+                </>
+              ))}
+            </S.TipDiv>
+            <div id="main" style={{ marginBottom: "300px" }} />
+          </S.MainDiv>
+          {Question.map((item, i) => (
+            <>
+              {i < (current + 1) * 5 && i >= current * 5 ? (
+                <Survey prop={item} data={{ data, setData }} />
+              ) : (
+                <></>
+              )}
             </>
           ))}
-        </S.TipDiv>
-        <div id="main" style={{ marginBottom: "300px" }} />
-      </S.MainDiv>
-      {Question.map((item, i) => (
-        <>
-          {i < (current + 1) * 5 && i >= current * 5 ? (
-            <Survey prop={item} data={{ data, setData }} />
-          ) : (
-            <></>
-          )}
+          <S.Btn>
+            {current !== 3 ? (
+              <a href="#main" onClick={() => onClickBtn("다음")}>
+                다음 &#9658;
+              </a>
+            ) : (
+              <a href="#main" onClick={() => onClickBtn("제출")}>
+                제출
+              </a>
+            )}
+          </S.Btn>
         </>
-      ))}
-      <S.Btn>
-        {current !== 3 ? (
-          <a href="#main" onClick={onClickBtn}>
-            다음 &#9658;
-          </a>
-        ) : (
-          <a href="#main" onClick={onClickBtn}>
-            제출
-          </a>
-        )}
-      </S.Btn>
+      ) : (
+        <Chat socket={socket} username={username} room={room} />
+      )}
     </>
   );
 };
