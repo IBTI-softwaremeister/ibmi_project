@@ -36,4 +36,28 @@ const mbti = [
   "ESTJ",
 ];
 
-const youMBTI = "INTP";
+export const Question = [
+  { content: "정말 좋아하는 음악이 있나요?", field: "music" },
+  { content: "노래를 부르는 것을 좋아하시나요?", field: "music" },
+  { content: "미술품을 보면 흥미로운가요?", field: "art" },
+  { content: "종이와 펜이 있다면, 낙서를 하시나요?", field: "art" },
+  { content: "평소에 요리를 하시나요?", field: "cook" },
+  { content: "빵 좋아하시나요?", field: "cook" },
+
+  { content: "사진을 자주 찍으시나요?", field: "picture" },
+  { content: "아름다운 풍경에 관심이 있으신가요?", field: "picture" },
+  { content: "책 좋아하시나요?", field: "book" },
+  { content: "글을 쓸때 재미를 느끼시나요?", field: "book" },
+  { content: "여러 지역에 관심이 많으신가요?", field: "trip" },
+
+  { content: "마음속에 가고 싶은 여행지가 있나요?", field: "trip" },
+  { content: "당신은 활동적인 사람인가요?", field: "sport" },
+  { content: "스포츠 경기를 자주 보시나요?", field: "sport" },
+  { content: "창작물을 만드는 것에 관심이 있으신가요?", field: "create" },
+  { content: "평소에 자기만의 세계가 확고한가요?", field: "create" },
+  
+  { content: "남들과는 다른 사람이 되고 싶나요?", field: "create" },
+  { content: "사람들과 어울리는 것을 좋아하시나요?", field: "extroversion" },
+  { content: "야외 활동을 선호하시나요?", field: "extroversion" },
+  { content: "산책하는 것을 즐기시나요?", field: "extroversion" },
+];
