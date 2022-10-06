@@ -30,7 +30,7 @@ export const Images = [
   },
   {
     img: gallery,
-    title: "미술과 가기"
+    title: "미술관 가기"
   },
   {
     img: instrument,

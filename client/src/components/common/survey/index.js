@@ -38,7 +38,7 @@ const Survey = (props) => {
   ];
 
   const answerData = (n, e, color) => {
-    setData({ ...data, [field]: data.[field] + n });
+    // setData({ ...data, [field]: data.[field]+ n });
   
     e.target.style.border = `10px solid ${color}`
   };

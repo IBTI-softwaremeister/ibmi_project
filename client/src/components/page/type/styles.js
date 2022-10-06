@@ -75,6 +75,35 @@ export const PopupWindow = styled.div`
     justify-content: space-evenly;
     align-items: center;
     
+    .select_window {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .select_box {
+        width: 20vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+    }
+    .select_box img {
+        background-color: white;
+    }
+    .select_box p {
+        font-size: 17px;
+        color: white;
+        text-align: center;
+    }
+    .select_button {
+        width: 70%;
+        height: 50px;
+        border-radius: 100px;
+
+    }
+
     img {
         width: 200px;
         height: 200px;
@@ -121,5 +150,8 @@ export const PopupWindow = styled.div`
         border: none;
         font-size: 20px;
         font-weight: 700;
+    }
+    button:hover {
+        background-color: lightgray;
     }
 `

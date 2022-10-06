@@ -4,6 +4,7 @@ import Header from '../../common/header/index'
 import * as S from "./styles"
 import { Images, firstNameData, lastNameDate } from '../../../lib/export/data'
 import profile from "../../../asset/image/profile.png"
+import host from "../../../asset/image/host.webp"
 import Popup from "reactjs-popup"
 import Chat from "../chat/index"
 
@@ -14,6 +15,15 @@ const Index = () => {
   const [modalOpened, setModalOpened] = useState(false);
   const [isChange, setIsChange] = useState(false);
   const [showChat, setShowChat] = useState(false);
+  const [selectPopup, setSelectPopup] = useState(false);
+  const [isHost, setIsHost] = useState(false);
+  const [isMember, setIsMember] = useState(false);
+  const [hostPopup, setHostPopup] = useState(false);
+  const [hostData, setHostData] = useState({
+    name: "",
+    category: "",
+    explanation: "",
+  });
   const [data, setData] = useState({
     name: "",
     category: ""
@@ -29,6 +39,82 @@ const Index = () => {
     <>
     {showChat ? <Chat socket={socket} username={data.name} room={data.category}/> : 
     <>
+    <Popup
+      open={selectPopup}
+      onClose={() => {
+        setSelectPopup(false)
+      }}
+    >
+      <S.PopupWindow>
+        <div className='select_window'>
+          <div className='select_box'>
+            <img src={host} alt='' />
+            <p>채팅방의 호스트가 되어<br/> 자신의 전문분야를 다른 사람들에게 보여주세요!</p>
+            <button 
+              className='select_button'
+              onClick={() => {
+                setIsHost(true)
+                setSelectPopup(false)
+                setHostPopup(true)
+              }}
+            >
+              채팅방 만들기
+            </button>
+          </div>
+          <div className='select_box'>
+            <img src={profile} alt='' />
+            <p>채팅방의 멤버가 되어<br/> 다른 사람들로부터 새로운 정보를 얻으세요!</p>
+            <button 
+              className='select_button'
+              onClick={() => {
+                setIsMember(true)
+                setSelectPopup(false)
+                setModalOpened(true)
+              }}
+            >
+              채팅방 참여하기
+            </button>
+          </div>
+        </div>
+      </S.PopupWindow>
+    </Popup>
+    <Popup
+      open={hostPopup}
+      onOpen={() => {
+        setData({...data, name:firstNameData[Math.floor(Math.random() * firstNameData.length)] 
+          + " "
+          + lastNameDate[Math.floor(Math.random() * firstNameData.length)]})
+      }}
+      onClose={() => setHostPopup(false)}
+    >
+      <S.PopupWindow>
+        <img src={profile} alt='' />
+        <div>
+          <label>호스트 닉네임</label>
+            <input 
+              value={data.name} 
+              onChange={(e) => setData({...data, name: e.target.value})}
+            />
+        </div>
+        <textarea 
+          value={hostData.explanation} 
+          placeholder='채팅방에 대한 설명을 적어주세요...' 
+          onChange={(e) => {
+            // setHostData(...hostData, [explanation]:)
+          }}
+        />
+        <div>
+          <button 
+            onClick={() => {
+
+            }}
+          >
+            돌아가기
+          </button>
+          <button>만들기</button>
+        </div>
+      </S.PopupWindow>
+    </Popup>
     <Popup 
       open={modalOpened}
       onOpen={() => {
@@ -66,7 +152,7 @@ const Index = () => {
         </div>
         <div className='Button_box'>
           <button onClick={changeName} >닉네임 변경</button>
-          <button onClick={() => (setShowChat(true))} >
+          <button onClick={() => (setShowChat(false))} >
             확인
           </button>
         </div>
@@ -80,7 +166,7 @@ const Index = () => {
         {
           Images.map((image, idx) => (
             <S.Type onClick={() => {
-              setModalOpened(true)
+              setSelectPopup(true)
               setData({...data, category: image.title})
             }}>
               <img src={image.img} alt='' />
