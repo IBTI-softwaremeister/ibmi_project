@@ -18,67 +18,83 @@ import write from "../../asset/image/write.png"
 export const Images = [
   {
     img: camping,
-    title: "ASAP"
+    title: "ASSK",
+    ex: "활동적이고 사회적이며 예술적 감각이 있고 잘 알려져있는 사람"
   },
   {
     img: band,
-    title: "ASAU"
+    title: "ASSU",
+    ex: "활동적이고 사회적이며 예술적 감각이 있고 알려지지 않은 사람"
   },
   {
     img: concert,
-    title: "ASIP"
+    title: "ASIK",
+    ex: "활동적이고 사회적이며 무감각하고 잘 알려져있는 사람"
   },
   {
     img: gallery,
-    title: "ASIU"
+    title: "ASIU",
+    ex: "활동적이고 사회적이며 무감각하고 알려지지 않은 사람"
   },
   {
     img: instrument,
-    title: "APAP"
+    title: "APSK",
+    ex: "활동적이고 개인적이며 예술적이고 잘 알려져있는 사람"
   },
   {
     img: music,
-    title: "APAU"
+    title: "APSU",
+    ex: "활동적이고 개인적이며 예술적이고 알려지지 않은 사람"
   },
   {
     img: paint,
-    title: "APIP"
+    title: "APIK",
+    ex: "활동적이고 개인적이며 무감각하고 잘 알려져있는 사람"
   },
   {
     img: photo,
-    title: "APIU"
+    title: "APIU",
+    ex: "활동적이고 개인적이며 무감각하고 알려지지 않은 사람"
   },
   {
     img: photoart,
-    title: "IPIU"
+    title: "IPIK",
+    ex: "비활동적이고 개인적이며 무감각하고 잘 알려져있는 사람"
   },
   {
     img: riding,
-    title: "IPIP"
+    title: "IPIU",
+    ex: "비활동적이고 개인적이며 무감각하고 알려지지 않은 사람"
   },
   {
     img: selfie,
-    title: "IPAU"
+    title: "IPAK",
+    ex: "비활동적이고 개인적이며 예술적 감각이 있고 잘 알려져있는 사람"
   },
   {
     img: solotour,
-    title: "IPAP"
+    title: "IPSU",
+    ex: "비활동적이고 개인적이며 예술적 감각이 있고 잘 알려지지 않은 사람"
   },
   {
     img: sports,
-    title: "ISIU"
+    title: "ISIK",
+    ex: "비활동적이고 사회적이며 무감각하고 잘 알려져있는 사람"
   },
   {
     img: tour,
-    title: "ISIP"
+    title: "ISIU",
+    ex: "비활동적이고 사회적이며 무감각하고 잘 알려지지 않은 사람"
   },
   {
     img: waterpaint,
-    title: "ISAU"
+    title: "ISSK",
+    ex: "비활동적이고 사회적이며 예술적 감각이 있고 잘 알려져있는 사람"
   },
   {
     img: write,
-    title: "ISAP"
+    title: "ISSU",
+    ex: "비활동적이고 사회적이며 예술적 감각이 있고 잘 알려지지 않은 사람"
   }
 ]
 
