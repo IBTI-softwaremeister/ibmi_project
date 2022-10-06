@@ -137,14 +137,21 @@ const question = [
   { content: "상상력이 뛰어난 편인가요?", field: "SI" },
   { content: "자신의 생각을 표현하는 것을 좋아하시나요?", field: "SI" },
 
-  { content: "평소 돈이나 경제에 대한 관심이 많으신가요?", field: "PU" },
   {
-    content: "내 행동이 수익으로 연결되면 좋겠다고 생각하시나요?",
-    field: "PU",
+    content: "남들이 잘 모르는 것에 대해 딱히 알고 싶지 않으신가요?",
+    field: "KU",
   },
-  { content: "내 관심사는 미래가 유망한 분야인가요?", field: "PU" },
-  { content: "경제에 대해 아는 것은 중요하다고 생각하시나요?", field: "PU" },
-  { content: "흥미가 있더라도 수익이 없다면 싫으신가요?", field: "PU" },
+  {
+    content: "인기있는 일이라면 대체로 눈길이 가시나요?",
+    field: "KU",
+  },
+  { content: "유명한 분야를 선호하시나요?", field: "KU" },
+  { content: "심오한 분야는 취향이 아니라고 생각하시나요?", field: "KU" },
+  {
+    content:
+      "잘 알려지지 않은 문제들보다는 잘 알려진 취미가 중요하다고 생각하시나요?",
+    field: "KU",
+  },
 ];
 
 export const SuffleQuestion = question.sort(() => Math.random() - 0.5);
