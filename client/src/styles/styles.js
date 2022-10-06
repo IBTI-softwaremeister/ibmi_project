@@ -1,14 +1,17 @@
 import { createGlobalStyle } from "styled-components";
 
-
-
 export const GlobalStyle = createGlobalStyle`
+  * {
+    font-family: 'BMJUA';
+    outline: none;
+    border: none;
+  }
+
   body, html {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    font-family: 'BMJUA';
   }
 
   @font-face {
