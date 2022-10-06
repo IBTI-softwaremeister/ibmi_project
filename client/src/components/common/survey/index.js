@@ -1,17 +1,19 @@
 import * as S from "./styles";
 import speakerImg from "../../../asset/image/speaker.png";
 import { useState } from "react";
+import { speak } from "../../../lib/func/speak";
 
 const Survey = (props) => {
   const { content, field } = props.prop;
   const { data, setData } = props.data;
   const [before, setBefore] = useState({ number: 0, dom: "", color: "" });
 
-  const keyword = Array.from({ length: 6 }, () => {
+  const keyword = Array.from({ length: 7 }, () => {
     return "";
   });
 
   const answerData = (n, e, color) => {
+    console.log(n);
     setData({ ...data, [field]: data[field] + n - before.number });
 
     if (before.dom) before.dom.style.border = `3px solid ${before.color}`;
@@ -19,18 +21,6 @@ const Survey = (props) => {
     setBefore({ number: n, dom: e.target, color: color });
     e.target.style.border = `10px solid ${color}`;
   };
-
-  function speak(text) {
-    window.speechSynthesis.cancel();
-
-    const speechMsg = new SpeechSynthesisUtterance();
-    speechMsg.rate = 1;
-    speechMsg.pitch = 1;
-    speechMsg.lang = "ko-KR";
-    speechMsg.text = text;
-
-    window.speechSynthesis.speak(speechMsg);
-  }
 
   return (
     <>
@@ -44,13 +34,13 @@ const Survey = (props) => {
           {keyword.map((item, i) => (
             <>
               <S.AnswerBtn
-                color={i < 3 ? "#32B156" : "#833D3D"}
-                scale={i < 3 ? 150 - i * 30 : 90 + (i % 3) * 30} //2 2 3 3 4 3 5 2 6 1
+                color={i === 3 ? "#696969" : i < 3 ? "#32B156" : "#833D3D"}
+                scale={i === 3 ? 90 : i < 3 ? 150 - i * 20 : 110 + (i % 4) * 20}
                 onClick={(e) =>
                   answerData(
-                    i < 3 ? 7 - i * 2 : -3 - (i % 3) * 2,
+                    i === 3 ? 0 : i < 3 ? 7 - i * 2 : -3 - (i % 4) * 2,
                     e,
-                    i < 3 ? "#32B156" : "#833D3D"
+                    i === 3 ? "#696969" : i < 3 ? "#32B156" : "#833D3D"
                   )
                 }
               ></S.AnswerBtn>
