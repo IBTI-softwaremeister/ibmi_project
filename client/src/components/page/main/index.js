@@ -1,5 +1,5 @@
 import io from "socket.io-client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Chat from "../chat";
 import * as S from "./styles";
 import checkImg from "../../../asset/image/check.png";
@@ -29,6 +29,7 @@ const Main = () => {
   });
 
   const joinRoom = () => {
+    const interest = "관심사1"
     if (username !== "" && room !== "") {
       socket.emit("join_room", { room, username, interest });
       setShowChat(true);
@@ -60,22 +61,17 @@ const Main = () => {
     if (str === "제출") {
       console.log("제출 듕");
     }
-
-    asdf();
+    getRoom();
   };
 
-  async function asdf() {
-    await axios({
-      method: "get",
+  const getRoom = () => {
+    axios({
       url: "http://localhost:3001/getRoom",
-    })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
+      method: "get",
+    }).then((res) => {
+      console.log(res);
+    });
+  };
 
   return (
     <>

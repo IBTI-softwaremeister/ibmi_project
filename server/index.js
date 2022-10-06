@@ -23,7 +23,11 @@ app.get("/getRoom", (req, res) => {
 io.on("connection", (socket) => {
   socket.on("join_room", (data) => {
     socket.join(data.room);
-    if (!roomArr.includes(data.room)) {
+    let bool = true;
+    for (let i = 0; i < roomArr.length; i++)
+      if (Object.values(roomArr[i]).includes(data.room)) bool = false;
+
+    if (bool) {
       const datum = {
         room: data.room,
         interest: data.interest,
