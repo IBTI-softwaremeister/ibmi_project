@@ -1,20 +1,13 @@
-import io from "socket.io-client";
 import { useEffect, useState } from "react";
-import Chat from "../chat";
 import * as S from "./styles";
 import checkImg from "../../../asset/image/check.png";
 import questionImg from "../../../asset/image/question.png";
 import seriousImg from "../../../asset/image/serious.png";
 import Survey from "../../common/survey";
-import { SuffleQuestion } from "../../../lib/export/data";
-import axios from "axios";
-
-const socket = io.connect("http://localhost:3001");
+import { Images, SuffleQuestion } from "../../../lib/export/data";
+import Popup from "reactjs-popup";
 
 const Main = () => {
-  const [username, setUsername] = useState("");
-  const [room, setRoom] = useState("");
-  const [showChat, setShowChat] = useState(false);
   const [current, setCurrent] = useState(0);
   const [data, setData] = useState({
     AI: 0,
@@ -25,14 +18,7 @@ const Main = () => {
   const [ibti, setIbti] = useState(
     () => JSON.parse(window.localStorage.getItem("ibti")) || ""
   );
-
-  const joinRoom = () => {
-    const description = "관심사1";
-    if (username !== "" && room !== "") {
-      socket.emit("host_room", { room, username, description });
-      setShowChat(true);
-    }
-  };
+  const [openModal, setOpenModal] = useState(false);
 
   const tip = [
     {
@@ -59,15 +45,17 @@ const Main = () => {
   const onClickBtn = (str) => {
     if (current < 3) {
       setCurrent(current + 1);
+    } else {
+      setCurrent(0);
     }
     if (str === "제출") {
       getIBTI(data);
+      setOpenModal(true);
     }
   };
 
   const getIBTI = (data) => {
     let type = "";
-
     if (data.AI > 0) type += "A";
     else type += "I";
     if (data.SP > 0) type += "S";
@@ -80,8 +68,43 @@ const Main = () => {
     setIbti(type);
   };
 
+  const getInfo = (ibti) => {
+    for (let i = 0; i < Images.length; i++) {
+      if (Images[i].title === ibti) {
+        return {
+          img: Images[i].img,
+          ex: Images[i].ex,
+        };
+      }
+    }
+    return {
+      img: "",
+      ex: "",
+    };
+  };
+
   return (
     <>
+      <Popup
+        open={openModal}
+        onClose={() => {
+          setOpenModal(false);
+        }}
+      >
+        <S.ModalDiv>
+          <h2>{ibti}</h2>
+          <img src={getInfo(ibti).img} alt="" />
+          <p>{getInfo(ibti).ex}</p>
+          <button
+            onClick={() => {
+              window.location = "/room";
+              setOpenModal(false);
+            }}
+          >
+            채팅하러 가기
+          </button>
+        </S.ModalDiv>
+      </Popup>
       <S.MainDiv>
         <S.Circle />
         <S.Banner>
@@ -104,7 +127,7 @@ const Main = () => {
             </>
           ))}
         </S.TipDiv>
-        <div id="main" style={{ marginBottom: "300px" }} />
+        <div id="main" style={{ marginBottom: "100px" }} />
       </S.MainDiv>
       {SuffleQuestion.map((item, i) => (
         <>
