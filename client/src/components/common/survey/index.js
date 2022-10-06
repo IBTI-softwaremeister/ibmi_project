@@ -13,7 +13,6 @@ const Survey = (props) => {
   });
 
   const answerData = (n, e, color) => {
-    console.log(n);
     setData({ ...data, [field]: data[field] + n - before.number });
 
     if (before.dom) before.dom.style.border = `3px solid ${before.color}`;
