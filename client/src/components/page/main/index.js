@@ -1,12 +1,12 @@
 import io from "socket.io-client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Chat from "../chat";
 import * as S from "./styles";
 import checkImg from "../../../asset/image/check.png";
 import questionImg from "../../../asset/image/question.png";
 import seriousImg from "../../../asset/image/serious.png";
 import Survey from "../../common/survey";
-import { Question } from "../../../lib/export/data";
+import { SuffleQuestion } from "../../../lib/export/data";
 import axios from "axios";
 
 const socket = io.connect("http://localhost:3001");
@@ -17,21 +17,19 @@ const Main = () => {
   const [showChat, setShowChat] = useState(false);
   const [current, setCurrent] = useState(0);
   const [data, setData] = useState({
-    music: 0,
-    art: 0,
-    cook: 0,
-    picture: 0,
-    book: 0,
-    trip: 0,
-    sport: 0,
-    create: 0,
-    extroversion: 0,
+    AI: 0,
+    SP: 0,
+    SI: 0,
+    PU: 0,
   });
+  const [ibti, setIbti] = useState(
+    () => JSON.parse(window.localStorage.getItem("ibti")) || ""
+  );
 
   const joinRoom = () => {
-    const interest = "관심사1"
+    const description = "관심사1";
     if (username !== "" && room !== "") {
-      socket.emit("join_room", { room, username, interest });
+      socket.emit("join_room", { room, username, description });
       setShowChat(true);
     }
   };
@@ -54,14 +52,31 @@ const Main = () => {
     },
   ];
 
+  useEffect(() => {
+    window.localStorage.setItem("ibti", JSON.stringify(ibti));
+  }, [ibti]);
+
   const onClickBtn = (str) => {
     if (current < 3) {
       setCurrent(current + 1);
     }
     if (str === "제출") {
-      console.log("제출 듕");
+      getIBTI(data);
     }
-    getRoom();
+  };
+
+  const getIBTI = (data) => {
+    let type = "";
+    if (data.AI > 0) type += "A";
+    else type += "I";
+    if (data.SP > 0) type += "S";
+    else type += "P";
+    if (data.SI > 0) type += "S";
+    else type += "I";
+    if (data.PU > 0) type += "P";
+    else type += "U";
+
+    setIbti(type);
   };
 
   const getRoom = () => {
@@ -118,10 +133,10 @@ const Main = () => {
             </S.TipDiv>
             <div id="main" style={{ marginBottom: "300px" }} />
           </S.MainDiv>
-          {Question.map((item, i) => (
+          {SuffleQuestion.map((item, i) => (
             <>
               {i < (current + 1) * 5 && i >= current * 5 ? (
-                <Survey prop={item} data={{ data, setData }} />
+                <Survey prop={item} data={{ data, setData }} id={i % 5} />
               ) : (
                 <></>
               )}
@@ -129,7 +144,7 @@ const Main = () => {
           ))}
           <S.Btn>
             {current !== 3 ? (
-              <a href="#main" onClick={() => onClickBtn("다음")}>
+              <a href="#2" onClick={() => onClickBtn("다음")}>
                 다음 &#9658;
               </a>
             ) : (

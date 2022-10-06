@@ -1,86 +1,86 @@
-import camping from "../../asset/image/camping.png"
-import band from "../../asset/image/band.png"
-import concert from "../../asset/image/concert.png"
-import gallery from "../../asset/image/gallery.png"
-import instrument from "../../asset/image/instrument.png"
-import music from "../../asset/image/music.png"
-import paint from "../../asset/image/paint.png"
-import photo from "../../asset/image/photo.png"
-import photoart from "../../asset/image/photoart.png"
-import riding from "../../asset/image/riding.png"
-import selfie from "../../asset/image/selfie.png"
-import solotour from "../../asset/image/solotour.png"
-import sports from "../../asset/image/sports.png"
-import tour from "../../asset/image/tour.png"
-import waterpaint from "../../asset/image/waterpaint.png"
-import write from "../../asset/image/write.png"
+import camping from "../../asset/image/camping.png";
+import band from "../../asset/image/band.png";
+import concert from "../../asset/image/concert.png";
+import gallery from "../../asset/image/gallery.png";
+import instrument from "../../asset/image/instrument.png";
+import music from "../../asset/image/music.png";
+import paint from "../../asset/image/paint.png";
+import photo from "../../asset/image/photo.png";
+import photoart from "../../asset/image/photoart.png";
+import riding from "../../asset/image/riding.png";
+import selfie from "../../asset/image/selfie.png";
+import solotour from "../../asset/image/solotour.png";
+import sports from "../../asset/image/sports.png";
+import tour from "../../asset/image/tour.png";
+import waterpaint from "../../asset/image/waterpaint.png";
+import write from "../../asset/image/write.png";
 
 export const Images = [
   {
     img: camping,
-    title: "ASAP"
+    title: "ASAP",
   },
   {
     img: band,
-    title: "ASAU"
+    title: "ASAU",
   },
   {
     img: concert,
-    title: "ASIP"
+    title: "ASIP",
   },
   {
     img: gallery,
-    title: "ASIU"
+    title: "ASIU",
   },
   {
     img: instrument,
-    title: "APAP"
+    title: "APAP",
   },
   {
     img: music,
-    title: "APAU"
+    title: "APAU",
   },
   {
     img: paint,
-    title: "APIP"
+    title: "APIP",
   },
   {
     img: photo,
-    title: "APIU"
+    title: "APIU",
   },
   {
     img: photoart,
-    title: "IPIU"
+    title: "IPIU",
   },
   {
     img: riding,
-    title: "IPIP"
+    title: "IPIP",
   },
   {
     img: selfie,
-    title: "IPAU"
+    title: "IPAU",
   },
   {
     img: solotour,
-    title: "IPAP"
+    title: "IPAP",
   },
   {
     img: sports,
-    title: "ISIU"
+    title: "ISIU",
   },
   {
     img: tour,
-    title: "ISIP"
+    title: "ISIP",
   },
   {
     img: waterpaint,
-    title: "ISAU"
+    title: "ISAU",
   },
   {
     img: write,
-    title: "ISAP"
-  }
-]
+    title: "ISAP",
+  },
+];
 
 export const firstNameData = [
   "노련한",
@@ -95,8 +95,8 @@ export const firstNameData = [
   "청순한",
   "위대한",
   "신실한",
-  "매력적인"  
-]
+  "매력적인",
+];
 export const lastNameDate = [
   "곤잘레스",
   "아그네스",
@@ -115,72 +115,36 @@ export const lastNameDate = [
   "실베스터",
   "빅토리아",
   "매거릿",
-  "헬리더"
-]
-
-const compatibility = [
-  [3, 3, 3, 4, 3, 4, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0],
-  [3, 3, 4, 3, 4, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0],
-  [3, 4, 3, 3, 3, 3, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0],
-  [4, 3, 3, 3, 3, 3, 3, 3, 4, 0, 0, 0, 0, 0, 0, 0],
-  [3, 4, 3, 3, 3, 3, 3, 4, 2, 2, 2, 2, 1, 1, 1, 1],
-  [4, 3, 3, 3, 3, 3, 4, 3, 2, 2, 2, 2, 1, 1, 1, 1],
-  [3, 3, 3, 3, 3, 4, 3, 3, 2, 2, 2, 2, 1, 1, 1, 4],
-  [3, 3, 4, 3, 4, 3, 3, 3, 2, 2, 2, 2, 1, 1, 1, 1],
-  [0, 0, 0, 4, 2, 2, 2, 2, 1, 1, 1, 1, 2, 4, 2, 4],
-  [0, 0, 0, 0, 2, 2, 2, 2, 1, 1, 1, 1, 4, 2, 4, 2],
-  [0, 0, 0, 0, 2, 2, 2, 2, 1, 1, 1, 1, 2, 4, 2, 4],
-  [0, 0, 0, 0, 2, 2, 2, 2, 1, 1, 1, 1, 4, 2, 2, 2],
-  [0, 0, 0, 0, 1, 2, 1, 1, 2, 4, 2, 4, 3, 3, 3, 3],
-  [0, 0, 0, 0, 1, 2, 1, 1, 4, 2, 4, 2, 3, 3, 3, 3],
-  [0, 0, 0, 0, 1, 2, 1, 1, 2, 4, 2, 2, 3, 3, 3, 3],
-  [0, 0, 0, 0, 1, 2, 4, 1, 4, 2, 4, 2, 3, 3, 3, 3],
+  "헬리더",
 ];
 
-const mbti = [
-  "INFP",
-  "ENFP",
-  "INFJ",
-  "ENFJ",
-  "INTJ",
-  "ENTJ",
-  "INTP",
-  "ENTP",
-  "ISFP",
-  "ESFP",
-  "ISTP",
-  "ESTP",
-  "ISFJ",
-  "ESFJ",
-  "ISTJ",
-  "ESTJ",
+const question = [
+  { content: "평소 운동을 즐겨 하시나요?", field: "AI" },
+  { content: "스포츠 경기를 보는 것을 즐기시나요?", field: "AI" },
+  { content: "스스로를 활동적인 사람이라고 생각하시나요?", field: "AI" },
+  { content: "직접 몸을 움직일 때 즐거우신가요?", field: "AI" },
+  { content: "야외활동을 즐겨 하시는 편인가요?", field: "AI" },
+
+  { content: "사람들과 어울리는 것이 편한가요?", field: "SP" },
+  { content: "사회문제에 관심이 많은 편인가요?", field: "SP" },
+  { content: "인간관계가 원할한 편인가요?", field: "SP" },
+  { content: "뉴스를 자주 보시나요?", field: "SP" },
+  { content: "여러 단체활동에 참여하는 편인가요?", field: "SP" },
+
+  { content: "감상적이라 생각하는 편인가요?", field: "SI" },
+  { content: "각종 전시회에 자주 참여하시나요?", field: "SI" },
+  { content: "창작 행위에 관심이 많으신가요?", field: "SI" },
+  { content: "상상력이 뛰어난 편인가요?", field: "SI" },
+  { content: "자신의 생각을 표현하는 것을 좋아하시나요?", field: "SI" },
+
+  { content: "평소 돈이나 경제에 대한 관심이 많으신가요?", field: "PU" },
+  {
+    content: "내 행동이 수익으로 연결되면 좋겠다고 생각하시나요?",
+    field: "PU",
+  },
+  { content: "내 관심사는 미래가 유망한 분야인가요?", field: "PU" },
+  { content: "경제에 대해 아는 것은 중요하다고 생각하시나요?", field: "PU" },
+  { content: "흥미가 있더라도 수익이 없다면 싫으신가요?", field: "PU" },
 ];
 
-export const Question = [
-  { content: "정말 좋아하는 음악이 있나요?", field: "music" },
-  { content: "노래를 부르는 것을 좋아하시나요?", field: "music" },
-  { content: "미술품을 보면 흥미로운가요?", field: "art" },
-  { content: "종이와 펜이 있다면, 낙서를 하시나요?", field: "art" },
-  { content: "평소에 요리를 하시나요?", field: "cook" },
-  { content: "빵 좋아하시나요?", field: "cook" },
-
-  { content: "사진을 자주 찍으시나요?", field: "picture" },
-  { content: "아름다운 풍경에 관심이 있으신가요?", field: "picture" },
-  { content: "책 좋아하시나요?", field: "book" },
-  { content: "글을 쓸때 재미를 느끼시나요?", field: "book" },
-  { content: "여러 지역에 관심이 많으신가요?", field: "trip" },
-
-  { content: "마음속에 가고 싶은 여행지가 있나요?", field: "trip" },
-  { content: "당신은 활동적인 사람인가요?", field: "sport" },
-  { content: "스포츠 경기를 자주 보시나요?", field: "sport" },
-  { content: "창작물을 만드는 것에 관심이 있으신가요?", field: "create" },
-  { content: "평소에 자기만의 세계가 확고한가요?", field: "create" },
-  
-  { content: "남들과는 다른 사람이 되고 싶나요?", field: "create" },
-  { content: "사람들과 어울리는 것을 좋아하시나요?", field: "extroversion" },
-  { content: "야외 활동을 선호하시나요?", field: "extroversion" },
-  { content: "산책하는 것을 즐기시나요?", field: "extroversion" },
-];
-
-
-
+export const SuffleQuestion = question.sort(() => Math.random() - 0.5);
