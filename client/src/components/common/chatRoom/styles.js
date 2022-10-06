@@ -11,7 +11,7 @@ export const MainDiv = styled.div`
   padding-right: 27px;
   border-radius: 20px;
   margin-bottom: 28px;
-  font-weight: bold;
+  font-weight: 700;
 
   span {
     font-size: 30px;
@@ -25,7 +25,7 @@ export const MainDiv = styled.div`
     color: #fff;
     background-color: #32b156;
     font-size: 26.6px;
-    font-weight: bold;
+    font-weight: 700;
     border-radius: 17px;
   }
 `;

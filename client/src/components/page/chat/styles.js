@@ -85,11 +85,10 @@ export const Author = styled.div`
   img {
     width: 50px;
     height: 50px;
-    border: 1px black solid;
   }
   div {
     margin: 0 26px;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 24px;
   }
 `;
@@ -105,7 +104,7 @@ export const MessageContent = styled.div`
     margin: 0 26px;
     max-width: 606px;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 700;
   }
 `;
 
@@ -115,7 +114,7 @@ export const RightPart = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   /* background-color: black; */
 
   img {
@@ -124,20 +123,21 @@ export const RightPart = styled.div`
   }
 
   div {
-    width: 300px;
+    width: 200px;
     height: 100px;
     font-size: 20px;
     display: flex;
-    justify-content: space-around;
+    align-items: center;
   }
   div span {
     color: #9de07d;
+    margin-left: 30px;
   }
   p {
     white-space: pre-line;
     text-align: center;
     font-size: 25px;
-    font-weight: bold;
+    font-weight: 700;
   }
   p span {
     color: #32b156;
@@ -145,7 +145,14 @@ export const RightPart = styled.div`
   .notice_p {
     color: red;
     text-align: start;
-    font-size: 20px;
     font-weight: 700;
+  }
+`;
+
+export const Undo = styled.div`
+  margin: 10px;
+  img {
+    width: 50px;
+    height: 50px;
   }
 `;

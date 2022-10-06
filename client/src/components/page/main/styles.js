@@ -54,6 +54,7 @@ export const Banner = styled.div`
     margin-top: -10px;
     font-size: 72px;
     color: #fff;
+    font-weight: 500;
   }
   p {
     margin-top: 0px;
@@ -71,9 +72,18 @@ export const Banner = styled.div`
     height: 50px;
     border: none;
     outline: none;
-    font-weight: bold;
+    font-weight: 700;
     text-decoration: none;
     color: #000;
+    transition: all 0.2s ease;
+  }
+
+  a:hover {
+    transform: translate3d(0, 10%, 0);
+  }
+
+  a:active {
+    transform: translate3d(0, 20%, 0);
   }
 `;
 
@@ -138,5 +148,14 @@ export const Btn = styled.div`
     color: #fff;
     background-color: #32b156;
     text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  a:hover {
+    transform: translate3d(0, 10%, 0);
+  }
+
+  a:active {
+    transform: translate3d(0, 20%, 0);
   }
 `;

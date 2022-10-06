@@ -28,7 +28,7 @@ export const Answer = styled.div`
   margin-bottom: 54px;
   span {
     font-size: 40px;
-    font-weight: bold;
+    font-weight: 700;
   }
 `;
 
