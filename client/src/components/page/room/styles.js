@@ -10,6 +10,18 @@ export const Banner = styled.div`
   box-sizing: border-box;
   margin-bottom: 82px;
 
+  .new_room_button {
+    position: absolute;
+    right: 100px;
+    width: 380px;
+    height: 90px;
+    border-radius: 30px;
+    line-height: 90px;
+    text-align: center;
+    font-size: 30px;
+    background-color: #E0F55D;
+  }
+
   > div {
     display: flex;
     flex-direction: column;
@@ -34,4 +46,75 @@ export const ContainerRoom = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+`;
+
+export const RoomBox = styled.div`
+  width: 50vw;
+  height: 60vh;
+  border-radius: 30px;
+  background-color: #B1E5C0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  .room_input_box {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+  }
+  .room_input_box input {
+    width: 600px;
+    height: 30px;
+    background-color: transparent;
+    font-size: 20px;
+    border: none;
+    border-bottom: 1.5px solid black;
+    outline: none;
+    margin-left: 3%;
+  }
+  .room_input_box span {
+    /* background-color: white; */
+    font-size: 20px;
+    margin-left: 3%;
+  }
+  .room_input_box svg {
+    position: absolute;
+    right: 0;
+  }
+  .room_input_box label {
+    font-size: 20px;
+    width: 50px;
+  }
+  .explanation_input {
+    width: 80%;
+    height: 240px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .explanation_input label {
+    font-size: 20px;
+  }
+  .explanation_input textarea {
+    width: 600px;
+    height: 100%;
+    font-size: 20px;
+    text-align: start;
+    justify-content: start;
+    outline: none;
+    border: none;
+  }
+  button {
+    width: 600px;
+    height: 60px;
+    border-radius: 200px;
+    border: none;
+    margin-left: 7.5%;
+    background-color: white;
+    font-size: 25px;
+  }
 `;

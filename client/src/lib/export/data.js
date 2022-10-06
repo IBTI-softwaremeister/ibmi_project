@@ -113,7 +113,7 @@ export const firstNameData = [
   "신실한",
   "매력적인",
 ];
-export const lastNameDate = [
+export const lastNameData = [
   "곤잘레스",
   "아그네스",
   "크리스",

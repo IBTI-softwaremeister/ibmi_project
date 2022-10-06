@@ -1,10 +1,25 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { firstNameData, lastNameData } from "../../../lib/export/data";
+import { io } from "socket.io-client";
 import ChatRoom from "../../common/chatRoom";
 import * as S from "./styles";
+import { Popup } from "reactjs-popup"
+import { BiRefresh } from "react-icons/bi"
+import Chat from "../chat";
+
+const socket = io.connect("http://localhost:3001");
 
 const Room = () => {
   const [data, setData] = useState([]);
+  const [modalOpened, setModalOpened] = useState(false);
+  const [showChat, setShowChat] = useState();
+  const [hostingData, setHostingData] = useState({
+    title: "",
+    name: `${firstNameData[Math.floor(Math.random() * firstNameData.length)] 
+    + " " + lastNameData[Math.floor(Math.random() * lastNameData.length)]}`,
+    description: ""
+  });
 
   useEffect(() => {
     getRoom();
@@ -18,11 +33,23 @@ const Room = () => {
       setData(res.data);
     });
   };
+  const check = () => {
+    console.log(hostingData.description, hostingData.title)
+    return hostingData.description === "" || hostingData.title === "";
+  }
 
   return (
     <>
       <>
         <S.Banner>
+          <div 
+            className="new_room_button"
+            onClick={() => {
+              setModalOpened(true)
+            }}
+          >
+            새로운 채팅방 만들기
+          </div>
           <div>
             <h1>채팅방 목록</h1>
             <p>
@@ -33,13 +60,63 @@ const Room = () => {
           </div>
         </S.Banner>
         <S.ContainerRoom>
-          {data.map((item) => (
-            <ChatRoom data={item} />
-          ))}
+          {
+            data.length === 0 ? data.map((item) => (
+              <ChatRoom data={item} />
+            ))
+            : <span>채팅방이 없습니다.</span>
+          }
         </S.ContainerRoom>
       </>
+      <Popup 
+        open={modalOpened}
+        onClose={() => {
+          setModalOpened(false)
+        }}
+      >
+        <S.RoomBox>
+          <div className="room_input_box">
+            <label>제목</label>
+            <input value={hostingData.title} onChange={(e) => setHostingData({...hostingData, title: e.target.value})} />
+          </div>
+          <div className="room_input_box">
+            <label>닉네임</label>
+            <span>{hostingData.name}</span>
+            <BiRefresh 
+              size={40} 
+              onClick={() => {
+                setHostingData({...hostingData, name: firstNameData[Math.floor(Math.random() * firstNameData.length)] 
+                + " " + lastNameData[Math.floor(Math.random() * firstNameData.length)]})
+              }}
+            />
+          </div>
+          <div className="explanation_input">
+            <label>설명</label>
+            <textarea 
+            value={hostingData.description}
+              onChange={(e) => {
+                setHostingData({...hostingData, description: e.target.value})
+                console.log(hostingData)
+              }}
+              placeholder="채팅방에 대한 설명을 입력해주세요." 
+            />
+          </div>
+          <button onClick={() => {
+            if(check()) {
+              alert("제목 또는 설명을 입력해주세요.")
+              return
+            }
+            else {
+              <Chat socket={socket} username={hostingData.name} room={hostingData.title} description={hostingData.description} />
+            }
+          }}
+          >
+            생성하기
+          </button>
+        </S.RoomBox>
+      </Popup>
     </>
   );
-};
+};  
 
 export default Room;
