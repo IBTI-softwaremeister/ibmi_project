@@ -1,12 +1,12 @@
-import React, { useState, useRef } from 'react'
-import { io } from 'socket.io-client'
-import Header from '../../common/header/index'
-import * as S from "./styles"
-import { Images, firstNameData, lastNameDate } from '../../../lib/export/data'
-import profile from "../../../asset/image/profile.png"
-import host from "../../../asset/image/host.webp"
-import Popup from "reactjs-popup"
-import Chat from "../chat/index"
+import React, { useState, useRef } from "react";
+import { io } from "socket.io-client";
+import Header from "../../common/header/index";
+import * as S from "./styles";
+import { Images, firstNameData, lastNameDate } from "../../../lib/export/data";
+import profile from "../../../asset/image/profile.png";
+import host from "../../../asset/image/host.webp";
+import Popup from "reactjs-popup";
+import Chat from "../chat/index";
 
 const socket = io.connect("http://localhost:3001");
 
@@ -49,16 +49,15 @@ const Index = () => {
                 })
               }}
             >
-              <img src={image.img} alt='' />
+              <img src={image.img} alt="" />
               <span>{image.title}</span>
               <span style={{display: "none"}}>{image.ex}</span>
             </S.Type>
-          ))
-        }
-      </S.TypeBox>
-    </S.Banner>
+          ))}
+        </S.TypeBox>
+      </S.Banner>
     </>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;

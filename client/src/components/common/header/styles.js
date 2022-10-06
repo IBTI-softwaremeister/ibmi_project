@@ -16,22 +16,23 @@ export const Header = styled.div`
         left: 40px;
     }
 
-    div {
-        width: 20%;
-        display: flex;
-        justify-content: space-between;
-        color: grey;
-        font-size: 20px;
-    }
-    div span {
-        cursor: pointer;
-        font-weight: 600;
-    }
-    div a {
-        text-decoration: none;
-        color: grey;
-    }
-    div span:hover {
-        color: black;
-    }
-`
+  div {
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    color: grey;
+    font-size: 20px;
+  }
+  div span {
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s ease-in-out;
+  }
+  div a {
+    text-decoration: none;
+    color: grey;
+  }
+  div span:hover {
+    color: black;
+  }
+`;

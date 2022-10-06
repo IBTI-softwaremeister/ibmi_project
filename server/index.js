@@ -30,7 +30,7 @@ io.on("connection", (socket) => {
     if (bool) {
       const datum = {
         room: data.room,
-        interest: data.interest,
+        description: data.description,
       };
       roomArr.push(datum);
     }
