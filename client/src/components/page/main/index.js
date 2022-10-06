@@ -7,6 +7,7 @@ import questionImg from "../../../asset/image/question.png";
 import seriousImg from "../../../asset/image/serious.png";
 import Survey from "../../common/survey";
 import { Question } from "../../../lib/export/data";
+import axios from "axios";
 
 const socket = io.connect("http://localhost:3001");
 
@@ -28,8 +29,9 @@ const Main = () => {
   });
 
   const joinRoom = () => {
+    const interest = "관심사1"
     if (username !== "" && room !== "") {
-      socket.emit("join_room", {room, username});
+      socket.emit("join_room", { room, username, interest });
       setShowChat(true);
     }
   };
@@ -59,6 +61,16 @@ const Main = () => {
     if (str === "제출") {
       console.log("제출 듕");
     }
+    getRoom();
+  };
+
+  const getRoom = () => {
+    axios({
+      url: "http://localhost:3001/getRoom",
+      method: "get",
+    }).then((res) => {
+      console.log(res);
+    });
   };
 
   return (
