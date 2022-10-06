@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Header = styled.div`
+    position: relative;
     width: 100%;
     height: 100px;
     display: flex;
@@ -10,9 +11,9 @@ export const Header = styled.div`
     border-bottom: 1px solid black;
 
     img {
-        position: absolute;
-        left: 4%;
         height: 60px;
+        position: absolute;
+        left: 40px;
     }
 
     div {
