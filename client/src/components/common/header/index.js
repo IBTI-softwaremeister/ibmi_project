@@ -7,7 +7,8 @@ const index = () => {
   return (
     <>
       <S.Header>
-        <img src={logo} alt="" />
+        <img src={logo} alt="" onClick={() => (window.location = "/")} />
+
         <div>
           <Link to={"/#main"}>
             <span>관심사 질문</span>
