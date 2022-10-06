@@ -13,6 +13,7 @@ export const Banner = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 70px;
+  /* z-index: -1; */
 
   > div {
     display: flex;
@@ -56,6 +57,14 @@ export const Banner = styled.div`
   a:active {
     transform: translate3d(0, 20%, 0);
   }
+
+  animation: moveBanner 1s ease-in-out;
+
+  @keyframes moveBanner {
+    0% {
+      transform: translateY(-150%);
+    }
+  }
 `;
 
 export const TipDiv = styled.div`
@@ -64,6 +73,7 @@ export const TipDiv = styled.div`
   justify-content: space-between;
   margin-top: -80px;
   margin-bottom: 117px;
+  z-index: 2;
 
   div {
     text-align: center;
@@ -98,13 +108,28 @@ export const Circle = styled.div`
   height: 804px;
   z-index: -1;
   background-image: url("data:image/svg+xml,%3Csvg width='779' height='804' viewBox='0 0 779 804' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='589.5' cy='342.5' rx='346.5' ry='342.5' fill='%2331918B' fill-opacity='0.56'/%3E%3Cellipse cx='220.5' cy='587' rx='220.5' ry='217' fill='%237675CF' fill-opacity='0.57'/%3E%3C/svg%3E%0A");
+
+  animation: moveCircle 1s ease-in-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+  z-index: -1;
+
+  @keyframes moveCircle {
+    0% {
+      opacity: 1;
+      transform: translateX(100%);
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 `;
 
 export const Btn = styled.div`
+  margin-top: 93px;
   width: 100vw;
   display: flex;
   justify-content: center;
-  margin-top: 30px;
   margin-bottom: 136px;
   a {
     display: flex;
@@ -128,5 +153,42 @@ export const Btn = styled.div`
 
   a:active {
     transform: translate3d(0, 20%, 0);
+  }
+`;
+
+export const ModalDiv = styled.div`
+  width: 997px;
+  height: 684px;
+  background-color: #eaebea;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 5px 5px 100vw 100vh rgba(0, 0, 0, 0.4);
+
+  h2 {
+    font-size: 40px;
+    color: #32b156;
+  }
+  img {
+    width: 600px;
+    height: 400px;
+    object-fit: cover;
+  }
+  p {
+    width: 580px;
+    margin-top: 20px;
+  }
+  button {
+    width: 300px;
+    height: 60px;
+    outline: none;
+    border: none;
+    background-color: #32b156;
+    color: #fff;
+    border-radius: 12px;
+    font-size: 20px;
   }
 `;
