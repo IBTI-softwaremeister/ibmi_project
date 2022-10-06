@@ -29,7 +29,7 @@ const Main = () => {
   const joinRoom = () => {
     const description = "관심사1";
     if (username !== "" && room !== "") {
-      socket.emit("join_room", { room, username, description });
+      socket.emit("host_room", { room, username, description });
       setShowChat(true);
     }
   };
@@ -84,7 +84,7 @@ const Main = () => {
     <>
       {!showChat ? (
         <>
-          <S.Join>
+          {/* <S.Join>
             <input
               type="text"
               placeholder="MBTI를 작성해주세요"
@@ -100,7 +100,7 @@ const Main = () => {
               }}
             />
             <button onClick={joinRoom}>Join A Room</button>
-          </S.Join>
+          </S.Join> */}
           <S.MainDiv>
             <S.Circle />
             <S.Banner>
@@ -136,7 +136,7 @@ const Main = () => {
           ))}
           <S.Btn>
             {current !== 3 ? (
-              <a href="#2" onClick={() => onClickBtn("다음")}>
+              <a href="#main" onClick={() => onClickBtn("다음")}>
                 다음 &#9658;
               </a>
             ) : (
@@ -147,7 +147,12 @@ const Main = () => {
           </S.Btn>
         </>
       ) : (
-        <Chat socket={socket} username={username} room={room} />
+        <Chat
+          socket={socket}
+          username={username}
+          room={room}
+          func={setShowChat}
+        />
       )}
     </>
   );
