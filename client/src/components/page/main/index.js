@@ -1,5 +1,5 @@
 import io from "socket.io-client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Chat from "../chat";
 import * as S from "./styles";
 import checkImg from "../../../asset/image/check.png";
@@ -7,6 +7,7 @@ import questionImg from "../../../asset/image/question.png";
 import seriousImg from "../../../asset/image/serious.png";
 import Survey from "../../common/survey";
 import { Question } from "../../../lib/export/data";
+import axios from "axios";
 
 const socket = io.connect("http://localhost:3001");
 
@@ -29,7 +30,7 @@ const Main = () => {
 
   const joinRoom = () => {
     if (username !== "" && room !== "") {
-      socket.emit("join_room", {room, username});
+      socket.emit("join_room", { room, username, interest });
       setShowChat(true);
     }
   };
@@ -59,7 +60,22 @@ const Main = () => {
     if (str === "제출") {
       console.log("제출 듕");
     }
+
+    asdf();
   };
+
+  async function asdf() {
+    await axios({
+      method: "get",
+      url: "http://localhost:3001/getRoom",
+    })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   return (
     <>

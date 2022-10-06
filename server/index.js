@@ -14,9 +14,22 @@ const io = new Server(server, {
   },
 });
 
+const roomArr = [];
+
+app.get("/getRoom", (req, res) => {
+  res.send(roomArr);
+});
+
 io.on("connection", (socket) => {
   socket.on("join_room", (data) => {
     socket.join(data.room);
+    if (!roomArr.includes(data.room)) {
+      const datum = {
+        room: data.room,
+        interest: data.interest,
+      };
+      roomArr.push(datum);
+    }
   });
 
   socket.on("send_message", (data) => {
