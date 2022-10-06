@@ -21,7 +21,7 @@ app.get("/getRoom", (req, res) => {
 });
 
 io.on("connection", (socket) => {
-  socket.on("join_room", (data) => {
+  socket.on("host_room", (data) => {
     socket.join(data.room);
     let bool = true;
     for (let i = 0; i < roomArr.length; i++)
@@ -31,6 +31,7 @@ io.on("connection", (socket) => {
       const datum = {
         room: data.room,
         description: data.description,
+        member: data.username,
       };
       roomArr.push(datum);
     }
