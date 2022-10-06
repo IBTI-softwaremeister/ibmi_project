@@ -1,5 +1,31 @@
 import styled from "styled-components";
 
+export const Circle = styled.div`
+  width: 931px;
+  height: 796px;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 254px;
+  right: -150px;
+  z-index: -2;
+
+  animation: moveCircle 1s ease-in-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+
+  @keyframes moveCircle {
+    0% {
+      opacity: 1;
+      transform: translateX(100%);
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  background-image: url("data:image/svg+xml,%3Csvg width='787' height='796' viewBox='0 0 787 796' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='587.049' cy='338.5' rx='344.049' ry='338.5' fill='%2331908B' fill-opacity='0.5'/%3E%3Cellipse cx='220.5' cy='579' rx='220.5' ry='217' fill='%23D7ED80' fill-opacity='0.57'/%3E%3C/svg%3E%0A");
+`;
+
 export const Banner = styled.div`
   width: 100%;
   height: 450px;
@@ -9,6 +35,14 @@ export const Banner = styled.div`
   padding-top: 70px;
   box-sizing: border-box;
   margin-bottom: 82px;
+
+  animation: moveBanner 1s ease-in-out;
+
+  @keyframes moveBanner {
+    0% {
+      transform: translateY(-150%);
+    }
+  }
 
   .new_room_button {
     position: absolute;
@@ -20,6 +54,15 @@ export const Banner = styled.div`
     text-align: center;
     font-size: 30px;
     background-color: #e0f55d;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      transform: translate3d(0, 10%, 0);
+    }
+
+    &:active {
+      transform: translate3d(0, 20%, 0);
+    }
   }
 
   > div {
@@ -47,7 +90,7 @@ export const ContainerRoom = styled.div`
   justify-content: center;
   flex-wrap: wrap;
 
-  >span {
+  > span {
     margin-top: 50px;
     font-size: 24px;
   }
@@ -95,23 +138,24 @@ export const RoomBox = styled.div`
     width: 50px;
   }
   .explanation_input {
-    width: 80%;
+    width: 100%;
     height: 240px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    margin-left: 20%;
   }
   .explanation_input label {
     font-size: 20px;
   }
   .explanation_input textarea {
-    width: 600px;
+    width: 650px;
     height: 100%;
     font-size: 20px;
     text-align: start;
     justify-content: start;
     outline: none;
     border: none;
+    margin-left: 5%;
   }
   button {
     width: 600px;

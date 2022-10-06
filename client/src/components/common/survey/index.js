@@ -13,7 +13,6 @@ const Survey = (props) => {
   });
 
   const answerData = (n, e, color) => {
-    console.log(n);
     setData({ ...data, [field]: data[field] + n - before.number });
 
     if (before.dom) before.dom.style.border = `3px solid ${before.color}`;
@@ -24,7 +23,8 @@ const Survey = (props) => {
 
   return (
     <>
-      <S.MainDiv id={props.id}>
+      <div id={props.id} style={{ marginBottom: "100px" }}></div>
+      <S.MainDiv>
         <S.Question>
           {content}
           <img src={speakerImg} alt="" onClick={() => speak(content)} />
@@ -36,13 +36,14 @@ const Survey = (props) => {
               <S.AnswerBtn
                 color={i === 3 ? "#696969" : i < 3 ? "#32B156" : "#833D3D"}
                 scale={i === 3 ? 90 : i < 3 ? 150 - i * 20 : 110 + (i % 4) * 20}
-                onClick={(e) =>
+                onClick={(e) => {
                   answerData(
                     i === 3 ? 0 : i < 3 ? 7 - i * 2 : -3 - (i % 4) * 2,
                     e,
                     i === 3 ? "#696969" : i < 3 ? "#32B156" : "#833D3D"
-                  )
-                }
+                  );
+                  window.location = `#${props.id + 1}`;
+                }}
               ></S.AnswerBtn>
             </>
           ))}

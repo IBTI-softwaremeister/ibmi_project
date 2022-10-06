@@ -33,10 +33,7 @@ const Room = () => {
       url: "http://localhost:3001/getRoom",
       method: "get",
     }).then((res) => {
-      console.log(res.data);
       setData(res.data);
-      const asd = res.data;
-      // socket.emit("disconnection", { asd });
     });
   };
 
@@ -82,6 +79,7 @@ const Room = () => {
               </p>
             </div>
           </S.Banner>
+          <S.Circle/>
           <S.ContainerRoom>
             {data.length !== 0 ? (
               data.map((item) => (

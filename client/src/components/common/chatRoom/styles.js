@@ -27,6 +27,7 @@ export const MainDiv = styled.div`
     font-size: 26.6px;
     font-weight: 700;
     border-radius: 17px;
+    cursor: pointer;
   }
 `;
 

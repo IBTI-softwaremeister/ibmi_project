@@ -108,6 +108,11 @@ export const MessageContent = styled.div`
   }
 `;
 
+export const Messages = styled.div`
+  margin-top: 90px;
+  height: calc(100% - 90px);
+`;
+
 export const RightPart = styled.div`
   width: 440px;
   height: 100%;
@@ -149,10 +154,35 @@ export const RightPart = styled.div`
   }
 `;
 
-export const Undo = styled.div`
-  margin: 10px;
+export const Interaction = styled.div`
+  padding: 10px;
+  width: calc(78% - 30px);
+  height: 70px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
   img {
     width: 50px;
     height: 50px;
+  }
+
+  button {
+    width: 150px;
+    height: 65px;
+    font-size: 20px;
+    background-color: #32b156;
+    color: #fff;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      transform: translate3d(0, 10%, 0);
+    }
+
+    &:active {
+      transform: translate3d(0, 20%, 0);
+    }
   }
 `;

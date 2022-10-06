@@ -8,6 +8,8 @@ import undo from "../../../asset/image/undo.png";
 function Chat({ socket, username, room, func }) {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
+  const [ttsActive, setTtsActive] = useState(false);
+  const ibti = JSON.parse(window.localStorage.getItem("ibti")) || "";
 
   const sendMessage = async () => {
     if (currentMessage !== "") {
@@ -24,14 +26,18 @@ function Chat({ socket, username, room, func }) {
       await socket.emit("send_message", messageData);
       setMessageList((list) => [...list, messageData]);
       setCurrentMessage("");
-      speak(currentMessage);
+      if (ttsActive) {
+        speak(currentMessage);
+      }
     }
   };
 
   useEffect(() => {
     socket.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
-      speak(data.message);
+      if (ttsActive) {
+        speak(data.message);
+      }
     });
   }, [socket]);
 
@@ -39,51 +45,67 @@ function Chat({ socket, username, room, func }) {
     <S.MainDiv>
       <S.BodyDiv>
         <ScrollToBottom>
-          <S.Undo
-            onClick={() => {
-              func(false);
-              socket.emit("disconnection", { username });
-            }}
-          >
-            <img src={undo} alt="" />
-          </S.Undo>
-          {messageList.map((messageContent) => {
-            return (
-              <S.Message
-                id={username === messageContent.author ? "other" : "you"}
-              >
-                <div>
-                  {username === messageContent.author ? (
-                    <S.Author style={{ justifyContent: "flex-end" }}>
-                      <div>{messageContent.author}</div>
-                      <img src={profile} alt="" />
-                    </S.Author>
-                  ) : (
-                    <S.Author>
-                      <img src={profile} alt="" />
-                      <div>{messageContent.author}</div>
-                    </S.Author>
-                  )}
-                  {username === messageContent.author ? (
-                    <S.MessageContent
-                      style={{
-                        justifyContent: "flex-end",
-                        marginRight: "-10px",
-                      }}
-                    >
-                      <p>{messageContent.message}</p>
-                      <span>{messageContent.time}</span>
-                    </S.MessageContent>
-                  ) : (
-                    <S.MessageContent>
-                      <span>{messageContent.time}</span>
-                      <p>{messageContent.message}</p>
-                    </S.MessageContent>
-                  )}
-                </div>
-              </S.Message>
-            );
-          })}
+          <S.Interaction>
+            <img
+              src={undo}
+              alt=""
+              onClick={() => {
+                func(false);
+                socket.emit("disconnection", { username });
+              }}
+            />
+            <button
+              onClick={() => {
+                setTtsActive(!ttsActive);
+              }}
+              style={
+                ttsActive
+                  ? { backgroundColor: "#32b156" }
+                  : { backgroundColor: "#9de07d" }
+              }
+            >
+              TTS 활성화
+            </button>
+          </S.Interaction>
+          <S.Messages>
+            {messageList.map((messageContent) => {
+              return (
+                <S.Message
+                  id={username === messageContent.author ? "other" : "you"}
+                >
+                  <div>
+                    {username === messageContent.author ? (
+                      <S.Author style={{ justifyContent: "flex-end" }}>
+                        <div>{messageContent.author + " " + `(${ibti})`}</div>
+                        <img src={profile} alt="" />
+                      </S.Author>
+                    ) : (
+                      <S.Author>
+                        <img src={profile} alt="" />
+                        <div>{messageContent.author + " " + `(${ibti})`}</div>
+                      </S.Author>
+                    )}
+                    {username === messageContent.author ? (
+                      <S.MessageContent
+                        style={{
+                          justifyContent: "flex-end",
+                          marginRight: "-10px",
+                        }}
+                      >
+                        <p>{messageContent.message}</p>
+                        <span>{messageContent.time}</span>
+                      </S.MessageContent>
+                    ) : (
+                      <S.MessageContent>
+                        <span>{messageContent.time}</span>
+                        <p>{messageContent.message}</p>
+                      </S.MessageContent>
+                    )}
+                  </div>
+                </S.Message>
+              );
+            })}
+          </S.Messages>
         </ScrollToBottom>
       </S.BodyDiv>
       <S.InputForm>

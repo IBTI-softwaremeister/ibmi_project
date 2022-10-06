@@ -9,6 +9,8 @@ export const Header = styled.div`
     align-items: center;
     justify-content: center;
     border-bottom: 1px solid black;
+    z-index: 99;
+    background-color: #fff;
 
     img {
         height: 60px;
