@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
 import * as S from "./styles";
+import profile from "../../../asset/image/profile.png";
 
 function Chat({ socket, username, room }) {
   const [currentMessage, setCurrentMessage] = useState("");
@@ -43,11 +44,11 @@ function Chat({ socket, username, room }) {
                   {username === messageContent.author ? (
                     <S.Author style={{ justifyContent: "flex-end" }}>
                       <div>{messageContent.author}</div>
-                      <img src="" alt="" />
+                      <img src={profile} alt="" />
                     </S.Author>
                   ) : (
                     <S.Author>
-                      <img src="" alt="" />
+                      <img src={profile} alt="" />
                       <div>{messageContent.author}</div>
                     </S.Author>
                   )}
@@ -89,11 +90,12 @@ function Chat({ socket, username, room }) {
       </S.InputForm>
       <S.RightPart>
         <div>
-          <img src="" alt="" />
+          <img src={profile} alt="" />
           <span>{username}</span>
         </div>
         <p>
-          공통 관심사는<br/> <span>{room}</span>입니다.
+          공통 관심사는
+          <br /> <span>{room}</span>입니다.
         </p>
         <p className="notice_p">{`채팅은 저장되지 않습니다.\n현재 페이지를 나가면 새롭게채팅에 \n 참여해야합니다.`}</p>
       </S.RightPart>
