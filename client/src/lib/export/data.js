@@ -1,100 +1,100 @@
-import camping from "../../asset/image/camping.png";
-import band from "../../asset/image/band.png";
-import concert from "../../asset/image/concert.png";
-import gallery from "../../asset/image/gallery.png";
-import instrument from "../../asset/image/instrument.png";
-import music from "../../asset/image/music.png";
-import paint from "../../asset/image/paint.png";
-import photo from "../../asset/image/photo.png";
-import photoart from "../../asset/image/photoart.png";
-import riding from "../../asset/image/riding.png";
-import selfie from "../../asset/image/selfie.png";
-import solotour from "../../asset/image/solotour.png";
-import sports from "../../asset/image/sports.png";
-import tour from "../../asset/image/tour.png";
-import waterpaint from "../../asset/image/waterpaint.png";
-import write from "../../asset/image/write.png";
+import ASSK from "../../asset/image/ASSK.png";
+import ASSU from "../../asset/image/ASSU.png";
+import ASIK from "../../asset/image/ASIK.png";
+import ASIU from "../../asset/image/ASIU.png";
+import APSK from "../../asset/image/APSK.png";
+import APSU from "../../asset/image/APSU.png";
+import APIK from "../../asset/image/APIK.png";
+import APIU from "../../asset/image/APIU.png";
+import ISSK from "../../asset/image/ISSK.png";
+import ISSU from "../../asset/image/ISSU.png";
+import ISIK from "../../asset/image/ISIK.png";
+import ISIU from "../../asset/image/ISIU.png";
+import IPSK from "../../asset/image/IPSK.png";
+import IPSU from "../../asset/image/IPSU.png";
+import IPIK from "../../asset/image/IPIK.png";
+import IPIU from "../../asset/image/IPIU.png";
 
 export const Images = [
   {
-    img: camping,
+    img: ASSK,
     title: "ASSK",
-    ex: "활동적이고 사회적이며 예술적 감각이 있고 잘 알려져있는 사람",
+    ex: "ASSK는 활동적이고 사회적이며 예술적 감각이 풍부한 성격입니다. 보편적으로 잘 알려진 분야에 대해 관심이 많으며 주로 ASSK는 마술, 드라마/영화배우, 아이돌 등의 직업이 이 성향을 가지고 있습니다.",
   },
   {
-    img: band,
+    img: ASSU,
     title: "ASSU",
-    ex: "활동적이고 사회적이며 예술적 감각이 있고 알려지지 않은 사람",
+    ex: "적극적이고  사회적이며 창작성이 풍부하지만 잘 알려지지 않은 분야에 대해 관심이 많습니다. 주로 ASSU는 비주류 장르 영화 감상이나 알려지지 않은 나만의 명소 방문 등의 성향을 가지고 있습니다.",
   },
   {
-    img: concert,
+    img: ASIK,
     title: "ASIK",
-    ex: "활동적이고 사회적이며 무감각하고 잘 알려져있는 사람",
+    ex: "ASIK는 활동적이고 사회적이며 현실적인 취미를 가지고 있습니다. 또한 잘 알려진 분야에 대해 관심이 많아 주로 ASIK는 각종 팀 스포츠(축구, 농구) 등의 취미를 즐기는 사람들이 이 성향을 가지고 있습니다.",
   },
   {
-    img: gallery,
+    img: ASIU,
     title: "ASIU",
-    ex: "활동적이고 사회적이며 무감각하고 알려지지 않은 사람",
+    ex: "ASIU는 적극적이고 사회적이며, 현실적인 취미를 가지고 있으나 잘 알려지지 않은 분야에 대해 관심이 많습니다. 주로 ASIU는 잘 알려지지 않은 모임이나 단체에 가입하는 성향을 가지고 있습니다.",
   },
   {
-    img: instrument,
+    img: APSK,
     title: "APSK",
-    ex: "활동적이고 개인적이며 예술적이고 잘 알려져있는 사람",
+    ex: "APSK는 활동적이고 반사회적이며, 예술적인 감각이 풍부한 성격입니다. 잘 알려진 분야에 대해 관심이 많으며 주로 APSK는 디지털 드로잉이나 악기 연주, 디자인 등의 성향을 가지고 있습니다.",
   },
   {
-    img: music,
+    img: APSU,
     title: "APSU",
-    ex: "활동적이고 개인적이며 예술적이고 알려지지 않은 사람",
+    ex: "APSU는 적극적이고 개인적인 성향이 강하며, 예술적인 감각이 풍부한 성격이나 잘 알려지지 않은 분야에 대해 관심이 많습니다. 주로 APSU는 나 홀로 여행이나 사진 찍기 등을 즐기는 성향을 가지고 있습니다.",
   },
   {
-    img: paint,
+    img: APIK,
     title: "APIK",
-    ex: "활동적이고 개인적이며 무감각하고 잘 알려져있는 사람",
+    ex: "APIK는 활동적이고 반사회적이며, 창조적인 감각이 적은 취미를 가지고 있습니다. 잘 알려진 분야에 대해 관심이 많으며 주로 APIK는 수영이나 헬스 등을 즐기는 성향을 가지고 있습니다.",
   },
   {
-    img: photo,
+    img: APIU,
     title: "APIU",
-    ex: "활동적이고 개인적이며 무감각하고 알려지지 않은 사람",
+    ex: "APIU는 활동적이고 개인적인 성향이 강하며, 현실적인 취미를 가지고 있으나 잘 알려지지 않은 분야에 대해 관심이 많습니다. 주로 APIU는 스카이 다이빙과 같은 익스트림 스포츠 종목을 즐기는 성향을 가지고 있습니다. ",
   },
   {
-    img: photoart,
+    img: IPIK,
     title: "IPIK",
-    ex: "비활동적이고 개인적이며 무감각하고 잘 알려져있는 사람",
+    ex: "IPIK는 비활동적이고 개인적이며 무감각합니다. 하지만 누구나 좋아하고 잘 알려진 놀이를 좋아합니다. 주로 게임이나 보드게임을 즐기는 사람들이 IPIK의 성향을 가지고 있습니다.",
   },
   {
-    img: riding,
+    img: IPIU,
     title: "IPIU",
-    ex: "비활동적이고 개인적이며 무감각하고 알려지지 않은 사람",
+    ex: "IPIU는 보통 혼자 있는 것을 좋아합니다. 비활동적이고 개인적인 성향을 가지고 있기 때문에 대중적으로 알려지지 않은 한 분야를 깊게 공부하는 경향이 있습니다.",
   },
   {
-    img: selfie,
-    title: "IPAK",
-    ex: "비활동적이고 개인적이며 예술적 감각이 있고 잘 알려져있는 사람",
+    img: IPSK,
+    title: "IPSK",
+    ex: "IPAK는 예술적인 감각을 가지고 있는 경우가 많습니다. 비활동적인 성향과 개인적인 성향을 가지지만 대중적으로 잘 알려진 분야를 좋아해서 음악과 미술의 영역에서 역량이 드러납니다.",
   },
   {
-    img: solotour,
+    img: IPSU,
     title: "IPSU",
-    ex: "비활동적이고 개인적이며 예술적 감각이 있고 잘 알려지지 않은 사람",
+    ex: "IPSU는 감각적인 부분으로 창의력을 발휘합니다. 비활동적이고 개인적인 성향은 IPSU에게 시, 글쓰기 등 생소한 취미가 생기게 만들었습니다.",
   },
   {
-    img: sports,
+    img: ISIK,
     title: "ISIK",
-    ex: "비활동적이고 사회적이며 무감각하고 잘 알려져있는 사람",
+    ex: "ISIK는 비활동적이지만 사회적인 성향이 있어서 간단한 모임과 상담 등 사람과 사람 사이의 간단한 활동을 좋아합니다. 무감각적이라는 특징이 있지만 대중적인 분야에서 직업을 가지는 경향이 있습니다.",
   },
   {
-    img: tour,
+    img: ISIU,
     title: "ISIU",
-    ex: "비활동적이고 사회적이며 무감각하고 잘 알려지지 않은 사람",
+    ex: "ISIU는 비활동적이면서 사회적인 활동의 영역에 있습니다. 토론, 사회문제 등 일반인에게는 생소한 주제를 가지고 사람 대 사람으로 대화하는 것을 좋아합니다. 다만 무감각적인 부분이 있어, 자신의 역량이 감춰지는 경우도 있습니다.",
   },
   {
-    img: waterpaint,
+    img: ISSK,
     title: "ISSK",
-    ex: "비활동적이고 사회적이며 예술적 감각이 있고 잘 알려져있는 사람",
+    ex: "비활동적이고 사회적이며 예술적 감각이 풍부한 성격을 가지고 있습니다. 잘 알려져 있는 분야에 대해 관심이 많으며 주로 ISSK는 유명한 라디오 방송이나 밴드 등을 듣는 성향을 가지고 있습니다.",
   },
   {
-    img: write,
+    img: ISSU,
     title: "ISSU",
-    ex: "비활동적이고 사회적이며 예술적 감각이 있고 잘 알려지지 않은 사람",
+    ex: "소극적이고 사회적이며 창작성이 풍부하지만 잘 알려지지 않은 분야에 대해 관심이 많습니다. 주로 ISSU는 ISSK와 같이 라디오 방송이나 밴드 등을 좋아하나 잘 알려지지 않은 라디오 방송이나 밴드 등을 듣는 성향을 가지고 있습니다.",
   },
 ];
 
