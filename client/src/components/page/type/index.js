@@ -32,13 +32,12 @@ const Index = () => {
       </S.PopupWindow>
     </Popup>
     <S.Banner>
-      <div className='green_box'></div>
       <span>관심사 유형</span>
       <p>총 16개의 관심사 유형이 있고, 같은 관심사 유형을 갖고 있는 사람들끼리<br/>
 소통 가능한 채팅을 진행 할 수 있습니다.</p>
       <S.TypeBox>
         {
-          Images.map((image, idx) => (
+          Images.map((image) => (
             <S.Type 
               onClick={() => {
                 setModalOpened(true)
