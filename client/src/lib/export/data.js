@@ -18,67 +18,67 @@ import write from "../../asset/image/write.png"
 export const Images = [
   {
     img: camping,
-    title: "캠핑가기"
+    title: "ASAP"
   },
   {
     img: band,
-    title: "밴드 가입하기"
+    title: "ASAU"
   },
   {
     img: concert,
-    title: "콘서트 보러가기"
+    title: "ASIP"
   },
   {
     img: gallery,
-    title: "미술과 가기"
+    title: "ASIU"
   },
   {
     img: instrument,
-    title: "악기 배우기"
+    title: "APAP"
   },
   {
     img: music,
-    title: "음악 만들기"
+    title: "APAU"
   },
   {
     img: paint,
-    title: "그림 그리기"
+    title: "APIP"
   },
   {
     img: photo,
-    title: "사진 찍기"
+    title: "APIU"
   },
   {
     img: photoart,
-    title: "포토아트"
+    title: "IPIU"
   },
   {
     img: riding,
-    title: "자전거 타기"
+    title: "IPIP"
   },
   {
     img: selfie,
-    title: "셀카 찍기"
+    title: "IPAU"
   },
   {
     img: solotour,
-    title: "나홀로 여행하기"
+    title: "IPAP"
   },
   {
     img: sports,
-    title: "스포츠 활동"
+    title: "ISIU"
   },
   {
     img: tour,
-    title: "여행하기"
+    title: "ISIP"
   },
   {
     img: waterpaint,
-    title: "수체화"
+    title: "ISAU"
   },
   {
     img: write,
-    title: "글 쓰기"
+    title: "ISAP"
   }
 ]
 

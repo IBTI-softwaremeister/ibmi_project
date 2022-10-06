@@ -26,6 +26,10 @@ export const Header = styled.div`
         cursor: pointer;
         font-weight: 600;
     }
+    div a {
+        text-decoration: none;
+        color: grey;
+    }
     div span:hover {
         color: black;
     }
