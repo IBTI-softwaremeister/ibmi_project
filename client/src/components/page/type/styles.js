@@ -23,7 +23,7 @@ export const Banner = styled.div`
     > span {
         margin-top: 10%;
         font-size: 72px;
-        font-weight: bold;
+        /* font-weight: bold; */
         color: white;
     }
 
@@ -45,9 +45,9 @@ export const TypeBox = styled.div`
 `
 export const Type = styled.div`
     width: 350px;
-    height: 350px;
+    height: 250px;
     background-color: #BAE9C7;
-    border-radius: 35px;
+    /* border-radius: 35px; */
     margin: 30px 0;
     text-align: center;
     font-size: 30px;
@@ -69,7 +69,7 @@ export const Type = styled.div`
     }
 
     span {
-        margin-top: 20px;
+        /* margin-top: 20px; */
         color: black;
     }
 `
