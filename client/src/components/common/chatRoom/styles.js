@@ -29,3 +29,70 @@ export const MainDiv = styled.div`
     border-radius: 17px;
   }
 `;
+
+export const RoomBox = styled.div`
+  width: 50vw;
+  height: 60vh;
+  border-radius: 30px;
+  background-color: #b1e5c0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  .room_input_box {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+  }
+  .room_input_box input {
+    width: 600px;
+    height: 30px;
+    background-color: transparent;
+    font-size: 20px;
+    border: none;
+    border-bottom: 1.5px solid black;
+    outline: none;
+    margin-left: 3%;
+  }
+  .room_input_box span {
+    /* background-color: white; */
+    font-size: 20px;
+    margin-left: 3%;
+  }
+  .room_input_box svg {
+    position: absolute;
+    right: 0;
+  }
+  .room_input_box label {
+    font-size: 20px;
+    width: 50px;
+  }
+  .explanation_input {
+    width: 80%;
+    height: 240px;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    div {
+      width: 700px;
+      margin-left: 23px;
+    }
+  }
+  .explanation_input label {
+    font-size: 20px;
+    width: 32px;
+  }
+  button {
+    width: 600px;
+    height: 60px;
+    border-radius: 200px;
+    border: none;
+    margin-left: 7.5%;
+    background-color: white;
+    font-size: 25px;
+  }
+`;

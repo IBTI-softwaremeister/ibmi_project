@@ -42,6 +42,7 @@ function Chat({ socket, username, room, func }) {
           <S.Undo
             onClick={() => {
               func(false);
+              socket.emit("disconnection", { username });
             }}
           >
             <img src={undo} alt="" />

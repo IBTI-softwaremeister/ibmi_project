@@ -19,7 +19,7 @@ export const Banner = styled.div`
     line-height: 90px;
     text-align: center;
     font-size: 30px;
-    background-color: #E0F55D;
+    background-color: #e0f55d;
   }
 
   > div {
@@ -46,13 +46,18 @@ export const ContainerRoom = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+
+  >span {
+    margin-top: 50px;
+    font-size: 24px;
+  }
 `;
 
 export const RoomBox = styled.div`
   width: 50vw;
   height: 60vh;
   border-radius: 30px;
-  background-color: #B1E5C0;
+  background-color: #b1e5c0;
   display: flex;
   flex-direction: column;
   align-items: center;

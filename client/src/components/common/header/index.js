@@ -16,6 +16,9 @@ const index = () => {
           <Link to={"/type"}>
             <span>관심사 유형</span>
           </Link>
+          <Link to={"/room"}>
+            <span>채팅방 목록</span>
+          </Link>
         </div>
       </S.Header>
     </>
