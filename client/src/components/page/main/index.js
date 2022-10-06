@@ -20,7 +20,7 @@ const Main = () => {
     AI: 0,
     SP: 0,
     SI: 0,
-    PU: 0,
+    KU: 0,
   });
   const [ibti, setIbti] = useState(
     () => JSON.parse(window.localStorage.getItem("ibti")) || ""
@@ -67,25 +67,17 @@ const Main = () => {
 
   const getIBTI = (data) => {
     let type = "";
+
     if (data.AI > 0) type += "A";
     else type += "I";
     if (data.SP > 0) type += "S";
     else type += "P";
     if (data.SI > 0) type += "S";
     else type += "I";
-    if (data.PU > 0) type += "P";
+    if (data.PU > 0) type += "K";
     else type += "U";
 
     setIbti(type);
-  };
-
-  const getRoom = () => {
-    axios({
-      url: "http://localhost:3001/getRoom",
-      method: "get",
-    }).then((res) => {
-      console.log(res);
-    });
   };
 
   return (

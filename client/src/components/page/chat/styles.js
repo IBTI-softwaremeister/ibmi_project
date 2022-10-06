@@ -118,6 +118,11 @@ export const RightPart = styled.div`
   justify-content: space-evenly;
   /* background-color: black; */
 
+  img {
+    width: 50px;
+    height: 50px;
+  }
+
   div {
     width: 300px;
     height: 100px;
