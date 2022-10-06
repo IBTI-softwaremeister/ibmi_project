@@ -1,3 +1,87 @@
+import camping from "../../asset/image/camping.png";
+import band from "../../asset/image/band.png";
+import concert from "../../asset/image/concert.png";
+import gallery from "../../asset/image/gallery.png";
+import instrument from "../../asset/image/instrument.png";
+import music from "../../asset/image/music.png";
+import paint from "../../asset/image/paint.png";
+import photo from "../../asset/image/photo.png";
+import photoart from "../../asset/image/photoart.png";
+import riding from "../../asset/image/riding.png";
+import selfie from "../../asset/image/selfie.png";
+import solotour from "../../asset/image/solotour.png";
+import sports from "../../asset/image/sports.png";
+import tour from "../../asset/image/tour.png";
+import waterpaint from "../../asset/image/waterpaint.png";
+import write from "../../asset/image/write.png";
+
+export const Images = [
+  {
+    img: camping,
+    title: "ASAP",
+  },
+  {
+    img: band,
+    title: "ASAU",
+  },
+  {
+    img: concert,
+    title: "ASIP",
+  },
+  {
+    img: gallery,
+    title: "ASIU",
+  },
+  {
+    img: instrument,
+    title: "APAP",
+  },
+  {
+    img: music,
+    title: "APAU",
+  },
+  {
+    img: paint,
+    title: "APIP",
+  },
+  {
+    img: photo,
+    title: "APIU",
+  },
+  {
+    img: photoart,
+    title: "IPIU",
+  },
+  {
+    img: riding,
+    title: "IPIP",
+  },
+  {
+    img: selfie,
+    title: "IPAU",
+  },
+  {
+    img: solotour,
+    title: "IPAP",
+  },
+  {
+    img: sports,
+    title: "ISIU",
+  },
+  {
+    img: tour,
+    title: "ISIP",
+  },
+  {
+    img: waterpaint,
+    title: "ISAU",
+  },
+  {
+    img: write,
+    title: "ISAP",
+  },
+];
+
 export const firstNameData = [
   "노련한",
   "귀여운",
