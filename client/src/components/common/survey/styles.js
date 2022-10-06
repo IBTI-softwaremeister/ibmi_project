@@ -19,7 +19,10 @@ export const Question = styled.div`
 `;
 
 export const Sortation = styled.hr`
-  margin-bottom: 97px;
+  margin-bottom: 0px;
+  width: 70vw;
+  height: 1px;
+  background-color: rgba(0,0,0,0.5);
 `;
 
 export const Answer = styled.div`
